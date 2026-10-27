@@ -22,6 +22,12 @@ export const CHANGELOG: Release[] = [
     changes: [
       {
         type: 'new',
+        en: 'A short welcome tour for first-time visitors',
+        pl: 'Krótki samouczek na start dla nowych osób',
+        cs: 'Krátká úvodní prohlídka pro nové uživatele',
+      },
+      {
+        type: 'new',
         en: "What's new screen and changelog, so you can see what changed",
         pl: 'Ekran „Co nowego” i historia zmian, żeby zobaczyć, co się zmieniło',
         cs: 'Obrazovka „Co je nového“ a historie změn, abyste viděli, co se změnilo',
