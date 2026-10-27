@@ -3074,5 +3074,34 @@
   },
   "common": {
     "tapHint": "Tap the stage to draw again"
+  },
+  "whatsNew": {
+    "kicker": "What's new",
+    "toastTitle": "Updated to v{{version}}",
+    "toastCta": "See what's new",
+    "dismiss": "Dismiss",
+    "versionTitle": "Version {{version}}",
+    "gotIt": "Got it",
+    "fullChangelog": "Full changelog",
+    "tag": {
+      "new": "New",
+      "better": "Better",
+      "fix": "Fix"
+    }
+  },
+  "changelog": {
+    "title": "Changelog",
+    "subtitle": "Every version and what changed",
+    "version": "Version",
+    "build": "Build",
+    "status": "Updates",
+    "current": "You're here",
+    "check": {
+      "button": "Check for updates",
+      "checking": "Checking…",
+      "current": "Up to date",
+      "updating": "Updating…",
+      "failed": "Couldn't check"
+    }
   }
 }

@@ -37,7 +37,7 @@ export function registerSW(): void {
     .then((registration) => {
       const check = () => {
         registration.update().catch(() => {});
-        void forceRefreshIfStale();
+        void checkForUpdate();
       };
       check();
       // Installed PWAs (esp. iOS standalone) are resumed, not reloaded, so a
@@ -53,26 +53,47 @@ export function registerSW(): void {
     });
 }
 
+export type UpdateCheck = 'current' | 'updating' | 'failed';
+
 // Belt-and-braces over the SW update path: if the live deploy's build id
 // differs from the one baked into this bundle, drop every SW + cache and
 // reload from the network. Guarded once per target build so a CDN lag can't
-// cause a reload loop.
-async function forceRefreshIfStale(): Promise<void> {
-  if (!navigator.onLine) return;
+// cause a reload loop. Also backs the "Check for updates" button.
+export async function checkForUpdate(): Promise<UpdateCheck> {
+  if (!navigator.onLine) return 'failed';
   try {
     const res = await fetch('/version.json', { cache: 'no-store' });
-    if (!res.ok) return;
+    if (!res.ok) return 'failed';
     const { build } = (await res.json()) as { build?: string };
-    if (!build || build === __BUILD_ID__) return;
+    if (!build || build === __BUILD_ID__) return 'current';
     const key = 'pwa-forced-build';
-    if (sessionStorage.getItem(key) === build) return;
+    if (sessionStorage.getItem(key) === build) return 'current';
     sessionStorage.setItem(key, build);
-    const regs = await navigator.serviceWorker.getRegistrations();
+    showUpdatingOverlay();
+    const regs = (await navigator.serviceWorker?.getRegistrations()) ?? [];
     await Promise.all(regs.map((r) => r.unregister()));
     const keys = await caches.keys();
     await Promise.all(keys.map((k) => caches.delete(k)));
     window.location.reload();
+    return 'updating';
   } catch {
     /* offline or malformed: keep running the cached version */
+    return 'failed';
   }
+}
+
+// Plain DOM, not React: it must cover the page during the reload regardless
+// of what the app tree is doing.
+function showUpdatingOverlay(): void {
+  const pl = document.documentElement.lang === 'pl';
+  const el = document.createElement('div');
+  el.setAttribute('role', 'status');
+  el.style.cssText =
+    'position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:var(--color-ink-fill,#16211a);color:var(--color-on-ink,#f8fdfa);font-family:var(--font-sans,system-ui)';
+  el.innerHTML = `
+    <div style="width:46px;height:46px;border-radius:50%;border:4px solid rgba(255,255,255,.15);border-top-color:var(--color-brand-500,#71c883);animation:pwa-spin .9s linear infinite"></div>
+    <div style="font-family:var(--font-display,system-ui);font-weight:900;font-size:40px;text-transform:uppercase">${pl ? 'Aktualizacja' : 'Updating'}</div>
+    <div style="opacity:.7;font-size:14px">${pl ? 'Pobieramy najnowszą wersję…' : 'Getting the newest version…'}</div>
+    <style>@keyframes pwa-spin{to{transform:rotate(1turn)}}</style>`;
+  document.body.appendChild(el);
 }

@@ -3074,5 +3074,34 @@
   },
   "common": {
     "tapHint": "Dotknij sceny, aby losować ponownie"
+  },
+  "whatsNew": {
+    "kicker": "Co nowego",
+    "toastTitle": "Zaktualizowano do v{{version}}",
+    "toastCta": "Zobacz nowości",
+    "dismiss": "Zamknij",
+    "versionTitle": "Wersja {{version}}",
+    "gotIt": "Rozumiem",
+    "fullChangelog": "Pełna historia zmian",
+    "tag": {
+      "new": "Nowe",
+      "better": "Lepsze",
+      "fix": "Poprawka"
+    }
+  },
+  "changelog": {
+    "title": "Historia zmian",
+    "subtitle": "Wszystkie wersje i co się w nich zmieniło",
+    "version": "Wersja",
+    "build": "Kompilacja",
+    "status": "Aktualizacje",
+    "current": "Twoja wersja",
+    "check": {
+      "button": "Sprawdź aktualizacje",
+      "checking": "Sprawdzanie…",
+      "current": "Masz najnowszą",
+      "updating": "Aktualizowanie…",
+      "failed": "Nie udało się sprawdzić"
+    }
   }
 }

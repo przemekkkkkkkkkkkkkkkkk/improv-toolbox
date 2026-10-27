@@ -7,6 +7,7 @@ import { FavoriteButton } from '../components/ui/FavoriteButton';
 import { FEATURES } from '../theme/features';
 import { IconCoffee } from '../components/icons';
 import { SupportCreatorButton } from '../components/support/SupportCreatorButton';
+import { VersionFooter } from '../components/whatsNew/WhatsNew';
 import {
   useFavoriteTools,
   type FavoriteToolName,
@@ -204,6 +205,7 @@ export function MorePage() {
             {t('more.legal.privacy')}
           </Link>
         </nav>
+        <VersionFooter className="mt-3" />
       </div>
     </PageContainer>
   );

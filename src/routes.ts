@@ -32,5 +32,6 @@ export default [
   route("privacy", "routes/privacy.tsx"),
   route("privacy-policy", "routes/privacy-policy.tsx"),
   route("contact", "routes/contact.tsx"),
+  route("changelog", "routes/changelog.tsx"),
   route("*", "routes/not-found.tsx"),
 ] satisfies RouteConfig;

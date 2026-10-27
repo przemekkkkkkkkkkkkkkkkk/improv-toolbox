@@ -1,8 +1,14 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
   plugins: [react()],
+  // Mirrors the build-time constants injected by vite.config.ts.
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version),
+    __BUILD_ID__: JSON.stringify('test'),
+  },
   test: {
     environment: 'jsdom',
     globals: true,

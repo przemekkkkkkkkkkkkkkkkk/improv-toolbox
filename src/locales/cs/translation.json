@@ -3074,5 +3074,34 @@
   },
   "common": {
     "tapHint": "Klepnutím sem vylosujete další"
+  },
+  "whatsNew": {
+    "kicker": "Co je nového",
+    "toastTitle": "Aktualizováno na v{{version}}",
+    "toastCta": "Zobrazit novinky",
+    "dismiss": "Zavřít",
+    "versionTitle": "Verze {{version}}",
+    "gotIt": "Rozumím",
+    "fullChangelog": "Celá historie změn",
+    "tag": {
+      "new": "Nové",
+      "better": "Lepší",
+      "fix": "Oprava"
+    }
+  },
+  "changelog": {
+    "title": "Historie změn",
+    "subtitle": "Všechny verze a co se v nich změnilo",
+    "version": "Verze",
+    "build": "Sestavení",
+    "status": "Aktualizace",
+    "current": "Vaše verze",
+    "check": {
+      "button": "Zkontrolovat aktualizace",
+      "checking": "Kontroluji…",
+      "current": "Máte nejnovější",
+      "updating": "Aktualizuji…",
+      "failed": "Kontrola se nezdařila"
+    }
   }
 }

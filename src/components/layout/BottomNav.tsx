@@ -2,11 +2,13 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FEATURES } from '../../theme/features';
 import { isPrimaryNavItemActive, PRIMARY_NAV_ITEMS } from './toolNavigation';
+import { useUnseenUpdate } from '../../pwa/whatsNew';
 
 export function BottomNav() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const unseenUpdate = useUnseenUpdate();
 
   return (
     <nav
@@ -46,6 +48,10 @@ export function BottomNav() {
             >
               <Icon size={23} strokeWidth={isActive ? 2.4 : 2} />
             </span>
+            {/* Unread release notes: the launcher carries the What's-new tile. */}
+            {tab.id === 'splash' && unseenUpdate && !isActive && (
+              <span aria-hidden className="absolute top-2 left-[calc(50%+8px)] h-2.5 w-2.5 rounded-full border-2 border-ink bg-brand-500" />
+            )}
             <span
               className={`text-[11px] leading-none ${isActive ? 'font-extrabold' : 'font-medium'}`}
               style={{ color: isActive ? theme.ink : 'inherit' }}

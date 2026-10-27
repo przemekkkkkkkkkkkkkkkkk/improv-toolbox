@@ -6,6 +6,7 @@ import { Snake } from '../components/icons/Snake';
 import { HeaderControls } from '../components/layout/HeaderControls';
 import { IconCoffee } from '../components/icons';
 import { SupportCreatorButton } from '../components/support/SupportCreatorButton';
+import { VersionFooter, WhatsNewCard } from '../components/whatsNew/WhatsNew';
 import { FavoriteButton } from '../components/ui/FavoriteButton';
 import {
   prioritizeFavoriteTools,
@@ -114,6 +115,8 @@ export function SplashPage() {
             />
           </div>
         </div>
+
+          {!searching && <WhatsNewCard className="mx-5 mt-4 lg:mx-0" />}
 
           {!searching && (
             <section data-favorite-shelf className="px-5 pt-4 lg:px-0">
@@ -244,6 +247,7 @@ export function SplashPage() {
               </SupportCreatorButton>
 
               <p className="text-center text-xs text-ink-muted pt-5">{t('splash.credit')}</p>
+              <VersionFooter className="pt-2 pb-2" />
             </div>
           )}
       </div>

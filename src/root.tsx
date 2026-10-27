@@ -30,6 +30,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import { IS_NATIVE_BUILD } from './native/platform';
 import { useNativeStatusBar } from './native/useNativeStatusBar';
 import { TipSheet } from './components/support/TipSheet';
+import { WhatsNew } from './components/whatsNew/WhatsNew';
 import { THEME_COLORS, THEME_INIT_SCRIPT } from './theme/colorMode';
 import { FAVORITE_TOOLS_INIT_SCRIPT } from './theme/favoriteTools';
 import { AppErrorPage } from './pages/ErrorPage';
@@ -192,6 +193,7 @@ function AppFrame({ children }: { children: React.ReactNode }) {
           <SpeedInsights />
         </>
       )}
+      <WhatsNew />
       {/* App only — the global in-app tip jar host. */}
       {IS_NATIVE_BUILD && <TipSheet />}
     </>
