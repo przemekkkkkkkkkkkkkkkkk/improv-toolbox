@@ -117,6 +117,28 @@
     "facts": "Facts",
     "more": "More"
   },
+  "intro": {
+    "progress": "{{current}} of {{total}}",
+    "skip": "Skip tour",
+    "next": "Next",
+    "done": "Got it",
+    "welcome": {
+      "title": "Welcome backstage",
+      "body": "Improv Toolbox is a free kit of small tools for improvisers: scene prompts, warmups, characters, timers and more. Works offline, no sign-up."
+    },
+    "search": {
+      "title": "Find a tool",
+      "body": "Type \"warmup\", \"timer\" or \"scene\" to jump straight to it."
+    },
+    "tile": {
+      "title": "Tap a tile, get an idea",
+      "body": "Each tool draws something random: a scene, a character, a game. Reroll until it sparks."
+    },
+    "favorite": {
+      "title": "Keep favourites close",
+      "body": "Heart the tools you use most. They stay pinned at the top."
+    }
+  },
   "favorites": {
     "title": "Favorites",
     "add": "Add {{tool}} to favorites",

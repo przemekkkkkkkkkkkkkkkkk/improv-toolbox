@@ -3103,5 +3103,27 @@
       "updating": "Aktualizuji…",
       "failed": "Kontrola se nezdařila"
     }
+  },
+  "intro": {
+    "progress": "{{current}} z {{total}}",
+    "skip": "Přeskočit prohlídku",
+    "next": "Další",
+    "done": "Rozumím",
+    "welcome": {
+      "title": "Vítejte v zákulisí",
+      "body": "Improv Toolbox je bezplatná sada malých nástrojů pro improvizátory: náměty na scény, rozcvičky, postavy, časovače a další. Funguje offline, bez registrace."
+    },
+    "search": {
+      "title": "Najděte nástroj",
+      "body": "Napište „rozcvička“, „časovač“ nebo „scéna“ a skočte rovnou na něj."
+    },
+    "tile": {
+      "title": "Klepněte na dlaždici a máte nápad",
+      "body": "Každý nástroj vylosuje něco náhodného: scénu, postavu, hru. Losujte znovu, dokud to nejiskří."
+    },
+    "favorite": {
+      "title": "Oblíbené po ruce",
+      "body": "Označte srdíčkem nástroje, které používáte nejčastěji. Zůstanou připnuté nahoře."
+    }
   }
 }

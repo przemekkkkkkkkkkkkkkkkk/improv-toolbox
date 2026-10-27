@@ -8,6 +8,7 @@ import { IconCoffee } from '../components/icons';
 import { SupportCreatorButton } from '../components/support/SupportCreatorButton';
 import { VersionFooter, WhatsNewCard } from '../components/whatsNew/WhatsNew';
 import { FavoriteButton } from '../components/ui/FavoriteButton';
+import { AppIntro } from '../components/intro/AppIntro';
 import {
   prioritizeFavoriteTools,
   useFavoriteTools,
@@ -99,7 +100,7 @@ export function SplashPage() {
 
       <div className="min-w-0 lg:pt-0">
         {/* ── Search ─────────────────────────────────────────────────────────── */}
-        <div className="px-5 pt-4 lg:px-0 lg:pt-0">
+        <div data-intro="search" className="px-5 pt-4 lg:px-0 lg:pt-0">
           <div className="flex items-center gap-2.5 bg-surface border-[1.5px] border-line rounded-[13px] px-3.5 py-3 transition-[border-color,box-shadow] focus-within:border-brand-400 focus-within:ring-2 focus-within:ring-brand-200">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" className="shrink-0 text-ink-faint" aria-hidden>
               <circle cx="11" cy="11" r="7" />
@@ -251,6 +252,7 @@ export function SplashPage() {
             </div>
           )}
       </div>
+      <AppIntro />
     </div>
   );
 }

@@ -117,6 +117,28 @@
     "facts": "Fakty",
     "more": "Więcej"
   },
+  "intro": {
+    "progress": "{{current}} z {{total}}",
+    "skip": "Pomiń",
+    "next": "Dalej",
+    "done": "Jasne",
+    "welcome": {
+      "title": "Witaj za kulisami",
+      "body": "Skrzynka Improwizatora to darmowy zestaw małych narzędzi dla improwizatorów: pomysły na sceny, rozgrzewki, postacie, timery i więcej. Działa offline, bez zakładania konta."
+    },
+    "search": {
+      "title": "Znajdź narzędzie",
+      "body": "Wpisz np. „timer”, „koło” albo „postaci”, żeby od razu tam przejść."
+    },
+    "tile": {
+      "title": "Dotknij kafelka, złap pomysł",
+      "body": "Każde narzędzie losuje coś dla ciebie: scenę, postać, grę. Losuj dalej, aż zaskoczy."
+    },
+    "favorite": {
+      "title": "Ulubione pod ręką",
+      "body": "Dodaj serduszko narzędziom, których używasz najczęściej. Zostaną przypięte na górze."
+    }
+  },
   "favorites": {
     "title": "Ulubione",
     "add": "Dodaj {{tool}} do ulubionych",
