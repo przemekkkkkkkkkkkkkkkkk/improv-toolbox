@@ -53,14 +53,13 @@ Before opening a PR, please make sure `npm run lint`, `npm run build`, and
 - The native app is **multilingual**. If you touch user-facing text, update
   every locale in `src/locales/` (`en`, `pl`, and `cs`). The public websites
   remain separate English and Polish builds.
-  Translations are also managed via Crowdin — see the README for that workflow.
 - Mobile-first, offline-first. Keep it working as a PWA.
 
 ## Translations
 
-The fastest way to help with languages is through the Crowdin workflow described
-in the README. For a brand-new language you can also open a PR that adds the
-locale to `src/languages.ts` and loads its JSON in `src/i18n.ts`.
+Open a PR that edits `src/locales/[locale]/translation.json`. For a brand-new
+language, also add the locale to `src/languages.ts` and load its JSON in
+`src/i18n.ts`. See the README for how to handle comedy content.
 
 ## What not to include
 

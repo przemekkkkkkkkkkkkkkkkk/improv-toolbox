@@ -1,5 +1,7 @@
 # Localization plan: new languages under improv-toolbox.com/{lang}
 
+> **Update 2026-10-27:** Crowdin was dropped. The Crowdin-specific tooling recommendations (Q1, TL;DR steps 1–5) are superseded; the technical (Q2) and language-priority (Q3) findings still apply.
+
 Researched 2026-10-27. Scope: tooling and workflow for humor transcreation, the technical setup for `/de`, `/es`, etc., and language priority. Repo facts come from the working tree on that date. Every external claim links to a source. Anything I could not confirm is marked **unverified**.
 
 ## TL;DR: recommended plan

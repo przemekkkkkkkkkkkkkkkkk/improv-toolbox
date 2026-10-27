@@ -65,33 +65,12 @@ language. Translations live in `src/locales/[locale]/`.
 
 ### Contributing translations
 
-Translations are managed in the public
-[Improv Toolbox project on Crowdin](https://crowdin.com/project/improv-toolbox).
 English is the source language, and each locale is a checked-in JSON file at
-`src/locales/[locale]/translation.json`. Crowdin periodically proposes translated
-files through a GitHub pull request; the app never contacts Crowdin at runtime.
-
-To add or update a language:
-
-1. Join the Crowdin project and translate or review the relevant language there.
-2. A maintainer runs the **Crowdin translations** GitHub workflow (source changes
-   also run it automatically).
-3. Review and merge the pull request opened from `crowdin/translations`.
-4. For a brand-new language, also add the locale to `src/languages.ts` and load its
-   JSON file in `src/i18n.ts` before merging the first export.
-
-Maintainers must configure three repository secrets:
-
-- `CROWDIN_PROJECT_ID`: the numeric ID from the Crowdin project's API page.
-- `CROWDIN_PERSONAL_TOKEN`: a Crowdin token with project read, source-file
-  read/write, and translation read access.
-- `CROWDIN_GITHUB_TOKEN`: a fine-grained GitHub token with repository Contents and
-  Pull requests read/write access. Using a dedicated token ensures the translation
-  pull request triggers the normal CI workflows.
-
-The sync runs daily, on English source changes, or by manual dispatch. Its mapping
-lives in `crowdin.yml`; credentials must never be committed. Vercel bundles the
-reviewed, checked-in locale files during the normal application build.
+`src/locales/[locale]/translation.json`. To add or improve a language, open a
+pull request that edits that file. For a brand-new language, also add the locale
+to `src/languages.ts` and load its JSON file in `src/i18n.ts`. Comedy content
+(prompts, suggestions, character quirks) should be adapted so the joke works in
+your language, not translated word for word.
 
 ## Native builds (Capacitor)
 
