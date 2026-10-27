@@ -32,17 +32,47 @@ export function registerSW(): void {
     });
   }
 
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/sw.js')
-      .then((registration) => {
-        // Check immediately on load and hourly thereafter so both fresh visits
-        // and long-lived tabs pick up a new deploy promptly.
+  navigator.serviceWorker
+    .register('/sw.js')
+    .then((registration) => {
+      const check = () => {
         registration.update().catch(() => {});
-        setInterval(() => void registration.update().catch(() => {}), 60 * 60 * 1000);
-      })
-      .catch(() => {
-        /* registration failures are non-fatal; the app still works online */
+        void forceRefreshIfStale();
+      };
+      check();
+      // Installed PWAs (esp. iOS standalone) are resumed, not reloaded, so a
+      // load-time check alone never fires again. Re-check on every resume and
+      // hourly for long-lived tabs.
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') check();
       });
-  });
+      setInterval(check, 60 * 60 * 1000);
+    })
+    .catch(() => {
+      /* registration failures are non-fatal; the app still works online */
+    });
+}
+
+// Belt-and-braces over the SW update path: if the live deploy's build id
+// differs from the one baked into this bundle, drop every SW + cache and
+// reload from the network. Guarded once per target build so a CDN lag can't
+// cause a reload loop.
+async function forceRefreshIfStale(): Promise<void> {
+  if (!navigator.onLine) return;
+  try {
+    const res = await fetch('/version.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const { build } = (await res.json()) as { build?: string };
+    if (!build || build === __BUILD_ID__) return;
+    const key = 'pwa-forced-build';
+    if (sessionStorage.getItem(key) === build) return;
+    sessionStorage.setItem(key, build);
+    const regs = await navigator.serviceWorker.getRegistrations();
+    await Promise.all(regs.map((r) => r.unregister()));
+    const keys = await caches.keys();
+    await Promise.all(keys.map((k) => caches.delete(k)));
+    window.location.reload();
+  } catch {
+    /* offline or malformed: keep running the cached version */
+  }
 }

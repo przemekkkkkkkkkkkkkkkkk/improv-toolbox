@@ -27,3 +27,8 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+/** package.json version, injected by vite.config.ts. */
+declare const __APP_VERSION__: string;
+/** Unique per build; compared against /version.json to detect a stale client. */
+declare const __BUILD_ID__: string;
