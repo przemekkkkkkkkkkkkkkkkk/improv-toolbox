@@ -528,7 +528,6 @@ h1, h2, h3 {
 :root[data-favorite-tools~="facts"] [data-favorite-card="facts"],
 :root[data-favorite-tools~="timer"] [data-favorite-card="timer"],
 :root[data-favorite-tools~="character"] [data-favorite-card="character"],
-:root[data-favorite-tools~="prompts"] [data-favorite-card="prompts"],
 :root[data-favorite-tools~="suggestions"] [data-favorite-card="suggestions"],
 :root[data-favorite-tools~="formats"] [data-favorite-card="formats"],
 :root[data-favorite-tools~="reflection"] [data-favorite-card="reflection"],
@@ -536,15 +535,10 @@ h1, h2, h3 {
 :root[data-favorite-tools~="status"] [data-favorite-card="status"],
 :root[data-favorite-tools~="spine"] [data-favorite-card="spine"],
 :root[data-favorite-tools~="jam"] [data-favorite-card="jam"],
-:root[data-favorite-tools~="principles"] [data-favorite-card="principles"],
 :root[data-favorite-tools~="monologue"] [data-favorite-card="monologue"],
-:root[data-favorite-tools~="genres"] [data-favorite-card="genres"],
 :root[data-favorite-tools~="harold"] [data-favorite-card="harold"],
-:root[data-favorite-tools~="emotion"] [data-favorite-card="emotion"],
 :root[data-favorite-tools~="constraints"] [data-favorite-card="constraints"],
 :root[data-favorite-tools~="metronome"] [data-favorite-card="metronome"],
-:root[data-favorite-tools~="variants"] [data-favorite-card="variants"],
-:root[data-favorite-tools~="replay"] [data-favorite-card="replay"],
 :root[data-favorite-tools~="deconstruction"] [data-favorite-card="deconstruction"] {
   display: block;
 }
@@ -555,7 +549,6 @@ h1, h2, h3 {
 :root[data-favorite-tools~="facts"] [data-favorite-control="facts"] [data-favorite-button-shell],
 :root[data-favorite-tools~="timer"] [data-favorite-control="timer"] [data-favorite-button-shell],
 :root[data-favorite-tools~="character"] [data-favorite-control="character"] [data-favorite-button-shell],
-:root[data-favorite-tools~="prompts"] [data-favorite-control="prompts"] [data-favorite-button-shell],
 :root[data-favorite-tools~="suggestions"] [data-favorite-control="suggestions"] [data-favorite-button-shell],
 :root[data-favorite-tools~="formats"] [data-favorite-control="formats"] [data-favorite-button-shell],
 :root[data-favorite-tools~="reflection"] [data-favorite-control="reflection"] [data-favorite-button-shell],
@@ -563,15 +556,10 @@ h1, h2, h3 {
 :root[data-favorite-tools~="status"] [data-favorite-control="status"] [data-favorite-button-shell],
 :root[data-favorite-tools~="spine"] [data-favorite-control="spine"] [data-favorite-button-shell],
 :root[data-favorite-tools~="jam"] [data-favorite-control="jam"] [data-favorite-button-shell],
-:root[data-favorite-tools~="principles"] [data-favorite-control="principles"] [data-favorite-button-shell],
 :root[data-favorite-tools~="monologue"] [data-favorite-control="monologue"] [data-favorite-button-shell],
-:root[data-favorite-tools~="genres"] [data-favorite-control="genres"] [data-favorite-button-shell],
 :root[data-favorite-tools~="harold"] [data-favorite-control="harold"] [data-favorite-button-shell],
-:root[data-favorite-tools~="emotion"] [data-favorite-control="emotion"] [data-favorite-button-shell],
 :root[data-favorite-tools~="constraints"] [data-favorite-control="constraints"] [data-favorite-button-shell],
 :root[data-favorite-tools~="metronome"] [data-favorite-control="metronome"] [data-favorite-button-shell],
-:root[data-favorite-tools~="variants"] [data-favorite-control="variants"] [data-favorite-button-shell],
-:root[data-favorite-tools~="replay"] [data-favorite-control="replay"] [data-favorite-button-shell],
 :root[data-favorite-tools~="deconstruction"] [data-favorite-control="deconstruction"] [data-favorite-button-shell] {
   background: var(--color-brand-500);
   color: var(--color-ink);
@@ -585,7 +573,6 @@ h1, h2, h3 {
 :root[data-favorite-tools~="facts"] [data-favorite-control="facts"] [data-favorite-icon-active],
 :root[data-favorite-tools~="timer"] [data-favorite-control="timer"] [data-favorite-icon-active],
 :root[data-favorite-tools~="character"] [data-favorite-control="character"] [data-favorite-icon-active],
-:root[data-favorite-tools~="prompts"] [data-favorite-control="prompts"] [data-favorite-icon-active],
 :root[data-favorite-tools~="suggestions"] [data-favorite-control="suggestions"] [data-favorite-icon-active],
 :root[data-favorite-tools~="formats"] [data-favorite-control="formats"] [data-favorite-icon-active],
 :root[data-favorite-tools~="reflection"] [data-favorite-control="reflection"] [data-favorite-icon-active],
@@ -593,15 +580,10 @@ h1, h2, h3 {
 :root[data-favorite-tools~="status"] [data-favorite-control="status"] [data-favorite-icon-active],
 :root[data-favorite-tools~="spine"] [data-favorite-control="spine"] [data-favorite-icon-active],
 :root[data-favorite-tools~="jam"] [data-favorite-control="jam"] [data-favorite-icon-active],
-:root[data-favorite-tools~="principles"] [data-favorite-control="principles"] [data-favorite-icon-active],
 :root[data-favorite-tools~="monologue"] [data-favorite-control="monologue"] [data-favorite-icon-active],
-:root[data-favorite-tools~="genres"] [data-favorite-control="genres"] [data-favorite-icon-active],
 :root[data-favorite-tools~="harold"] [data-favorite-control="harold"] [data-favorite-icon-active],
-:root[data-favorite-tools~="emotion"] [data-favorite-control="emotion"] [data-favorite-icon-active],
 :root[data-favorite-tools~="constraints"] [data-favorite-control="constraints"] [data-favorite-icon-active],
 :root[data-favorite-tools~="metronome"] [data-favorite-control="metronome"] [data-favorite-icon-active],
-:root[data-favorite-tools~="variants"] [data-favorite-control="variants"] [data-favorite-icon-active],
-:root[data-favorite-tools~="replay"] [data-favorite-control="replay"] [data-favorite-icon-active],
 :root[data-favorite-tools~="deconstruction"] [data-favorite-control="deconstruction"] [data-favorite-icon-active] {
   display: block;
 }
@@ -612,7 +594,6 @@ h1, h2, h3 {
 :root[data-favorite-tools~="facts"] [data-favorite-control="facts"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="timer"] [data-favorite-control="timer"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="character"] [data-favorite-control="character"] [data-favorite-icon-inactive],
-:root[data-favorite-tools~="prompts"] [data-favorite-control="prompts"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="suggestions"] [data-favorite-control="suggestions"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="formats"] [data-favorite-control="formats"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="reflection"] [data-favorite-control="reflection"] [data-favorite-icon-inactive],
@@ -620,15 +601,10 @@ h1, h2, h3 {
 :root[data-favorite-tools~="status"] [data-favorite-control="status"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="spine"] [data-favorite-control="spine"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="jam"] [data-favorite-control="jam"] [data-favorite-icon-inactive],
-:root[data-favorite-tools~="principles"] [data-favorite-control="principles"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="monologue"] [data-favorite-control="monologue"] [data-favorite-icon-inactive],
-:root[data-favorite-tools~="genres"] [data-favorite-control="genres"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="harold"] [data-favorite-control="harold"] [data-favorite-icon-inactive],
-:root[data-favorite-tools~="emotion"] [data-favorite-control="emotion"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="constraints"] [data-favorite-control="constraints"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="metronome"] [data-favorite-control="metronome"] [data-favorite-icon-inactive],
-:root[data-favorite-tools~="variants"] [data-favorite-control="variants"] [data-favorite-icon-inactive],
-:root[data-favorite-tools~="replay"] [data-favorite-control="replay"] [data-favorite-icon-inactive],
 :root[data-favorite-tools~="deconstruction"] [data-favorite-control="deconstruction"] [data-favorite-icon-inactive] {
   display: none;
 }

@@ -80,21 +80,6 @@ export interface CharacterTrait {
   textKey: string;
 }
 
-// ─── Prompt Cards ─────────────────────────────────────────────────────────────
-
-export type PromptCategory =
-  | 'first_line'
-  | 'occupation'
-  | 'location'
-  | 'what_not_to_say'
-  | 'title';
-
-export interface PromptCard {
-  id: string;
-  textKey: string;
-  category: PromptCategory;
-}
-
 // ─── Audience Suggestions ─────────────────────────────────────────────────────
 
 export type SuggestionCategory =
@@ -103,7 +88,9 @@ export type SuggestionCategory =
   | 'relationship'
   | 'emotion'
   | 'movie_title'
-  | 'word';
+  | 'word'
+  | 'first_line'
+  | 'what_not_to_say';
 
 export interface Suggestion {
   id: string;
@@ -177,34 +164,14 @@ export interface GenreCard {
   tipKeys: string[];
 }
 
-// ─── Emotion Wheel ────────────────────────────────────────────────────────────
-
-export type EmotionFamily = 'joy' | 'sadness' | 'anger' | 'fear' | 'surprise' | 'disgust';
-
-export interface Emotion {
-  id: string;
-  textKey: string;
-  family: EmotionFamily;
-}
-
 // ─── Scene Constraints ────────────────────────────────────────────────────────
 
-export type ConstraintCategory = 'speech' | 'physical' | 'structural' | 'relational';
+export type ConstraintCategory = 'speech' | 'physical' | 'structural' | 'relational' | 'game' | 'replay';
 
 export interface SceneConstraint {
   id: string;
   textKey: string;
   category: ConstraintCategory;
-}
-
-// ─── Game Modifiers ───────────────────────────────────────────────────────────
-
-export type ModifierCategory = 'restriction' | 'role' | 'format' | 'constraint';
-
-export interface GameModifier {
-  id: string;
-  textKey: string;
-  category: ModifierCategory;
 }
 
 // ─── Glossary ─────────────────────────────────────────────────────────────────
@@ -216,16 +183,6 @@ export interface GlossaryTerm {
   termKey: string;
   definitionKey: string;
   category: GlossaryCategory;
-}
-
-// ─── Scene Replay Cards ───────────────────────────────────────────────────────
-
-export type ReplayCategory = 'physicality' | 'genre' | 'emotional' | 'structural' | 'character';
-
-export interface ReplayCard {
-  id: string;
-  textKey: string;
-  category: ReplayCategory;
 }
 
 // ─── Navigation ───────────────────────────────────────────────────────────────

@@ -6,10 +6,10 @@
  * the list here means the two pieces of chrome can never disagree.
  */
 export const MORE_PATHS = [
-  '/more', '/timer', '/character', '/prompts', '/suggestions', '/formats',
-  '/reflection', '/soundscape', '/status', '/spine', '/jam', '/principles',
-  '/monologue', '/genres', '/harold', '/emotion', '/constraints', '/metronome',
-  '/variants', '/replay', '/deconstruction', '/privacy', '/contact',
+  '/more', '/timer', '/character', '/suggestions', '/formats',
+  '/reflection', '/soundscape', '/status', '/spine', '/jam',
+  '/monologue', '/harold', '/constraints', '/metronome',
+  '/deconstruction', '/privacy', '/contact',
   '/changelog',
 ] as const;
 

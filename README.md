@@ -21,23 +21,22 @@ Use it three ways:
 | Archetype Wheel | Spins an animated wheel to assign one of 12 character archetypes to each player, no repeats |
 | Scene Generator | Draws a full scene setup (location, relationship, situation, mood, era) with a genre filter and per-element reroll |
 | Warmup Games | 69 games with rules and coaching tips, filterable by level and player count |
-| Improv Facts | 60 facts on history, technique, and famous improvisers |
+| Improv Facts | 60 facts plus improv principles, genre style tips, and a glossary |
 
 **Practice and rehearsal**
 
 Timer with fullscreen mode and end-of-round vibration · Character Builder
-(six rerollable traits) · Prompt Cards · Audience Suggestions with a
-grab-bag mode · Format Library (18 formats from Harold to BAT) ·
-Reflection Prompts for post-scene debriefs · Rehearsal soundscapes (rain,
-cafe, ocean, and more) · BPM Metronome with tap tempo · Story Spine
-Generator · Scene Constraints · Emotion Wheel (48 emotions in 6 families)
+(six rerollable traits) · Audience Suggestions (locations, occupations,
+emotions, first lines, titles and more) · Format Library (18 formats from
+Harold to BAT) · Reflection Prompts for post-scene debriefs · Rehearsal
+soundscapes (rain, cafe, ocean, and more) · BPM Metronome with tap tempo ·
+Story Spine Generator · Scene Constraints (incl. game variants and replays)
 
 **Show tools**
 
 Jam Caller Board with a fullscreen show mode · Harold Beat Caller · Status
-Randomizer with tap-to-reveal cards · Game Variant Generator · Genre Style
-Cards · Monologue Seeds · Improv Principles flash cards · Scene Replay ·
-Deconstruction tracker with inline notes
+Randomizer with tap-to-reveal cards · Monologue Seeds · Deconstruction
+tracker with inline notes
 
 ## Development
 

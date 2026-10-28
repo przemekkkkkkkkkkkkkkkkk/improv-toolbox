@@ -11,6 +11,8 @@ const CATEGORIES: Array<{ value: ConstraintCategory | 'all'; labelKey: string }>
   { value: 'physical',   labelKey: 'constraints.categories.physical' },
   { value: 'structural', labelKey: 'constraints.categories.structural' },
   { value: 'relational', labelKey: 'constraints.categories.relational' },
+  { value: 'game',       labelKey: 'constraints.categories.game' },
+  { value: 'replay',     labelKey: 'constraints.categories.replay' },
 ];
 
 export function ConstraintsPage() {

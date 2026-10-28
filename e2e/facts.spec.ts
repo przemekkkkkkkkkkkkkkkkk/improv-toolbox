@@ -59,4 +59,11 @@ test.describe('Improv Facts', () => {
     const factText = page.locator('p[class*="text"]').filter({ hasText: /\w{5,}/ }).first();
     await expect(factText).not.toBeEmpty();
   });
+
+  test('Principles and Genres sections render', async ({ page }) => {
+    await page.getByRole('button', { name: 'Principles', exact: true }).click();
+    await expect(page.getByText(/1\s*\/\s*\d+/)).toBeVisible();
+    await page.getByRole('button', { name: 'Genres', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Horror' })).toBeVisible();
+  });
 });

@@ -42,12 +42,9 @@ test.describe('Audience Suggestions', () => {
     expect(changed).toBe(true);
   });
 
-  test('Grab Bag mode shows 4 categories at once', async ({ page }) => {
-    await page.getByRole('button', { name: /Grab/i }).click();
-    await page.getByRole('button', { name: /Draw|Roll/i }).click();
-    // Should see all 4 grab bag labels
-    for (const label of ['Location', 'Occupation', 'Relationship', 'Emotion']) {
-      await expect(page.getByText(label).first()).toBeVisible();
+  test('includes merged prompt categories', async ({ page }) => {
+    for (const label of ['First line', 'What not to say']) {
+      await expect(page.getByRole('button', { name: label })).toBeVisible();
     }
   });
 });

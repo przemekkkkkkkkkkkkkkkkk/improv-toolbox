@@ -68,7 +68,6 @@ test.describe('Deep link routing', () => {
     { path: '/facts',      heading: 'Improv Facts' },
     { path: '/timer',      heading: 'Workshop Timer' },
     { path: '/character',  heading: 'Character Builder' },
-    { path: '/prompts',    heading: 'Prompt Cards' },
     { path: '/suggestions',heading: 'Audience Suggestions' },
     { path: '/formats',    heading: 'Format Library' },
     { path: '/reflection', heading: 'Reflection Prompts' },
@@ -76,14 +75,9 @@ test.describe('Deep link routing', () => {
     { path: '/status',     heading: 'Status Randomizer' },
     { path: '/spine',      heading: 'Story Spine' },
     { path: '/jam',        heading: 'Jam Caller Board' },
-    { path: '/principles', heading: 'Improv Principles' },
     { path: '/monologue',  heading: 'Monologue Seeds' },
-    { path: '/genres',     heading: 'Genre Style Cards' },
-    { path: '/emotion',    heading: 'Emotion Wheel' },
     { path: '/constraints',heading: 'Scene Constraint Cards' },
     { path: '/metronome',  heading: 'BPM Metronome' },
-    { path: '/variants',   heading: 'Game Variant Generator' },
-    { path: '/replay',     heading: 'Scene Replay Cards' },
     { path: '/contact',    heading: 'Contact' },
   ];
 

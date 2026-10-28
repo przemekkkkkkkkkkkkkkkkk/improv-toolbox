@@ -1,16 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { WARMUP_GAMES } from '../../data/warmups';
 import { IMPROV_FACTS } from '../../data/facts';
-import { PROMPT_CARDS } from '../../data/prompts';
 import { SUGGESTIONS } from '../../data/suggestions';
 import { REFLECTION_PROMPTS } from '../../data/reflection';
 import { IMPROV_FORMATS } from '../../data/formats';
 import { MONOLOGUE_SEEDS } from '../../data/monologue';
 import { IMPROV_PRINCIPLES } from '../../data/principles';
-import { REPLAY_CARDS } from '../../data/replay';
 import { SCENE_CONSTRAINTS } from '../../data/constraints';
-import { GAME_MODIFIERS } from '../../data/modifiers';
-import { EMOTIONS } from '../../data/emotions';
 import { LOCATIONS, RELATIONSHIPS, SITUATIONS, MOODS, TIME_PERIODS } from '../../data/scenes';
 import { GENRE_CARDS } from '../../data/genres';
 import { SPINE_BEATS } from '../../data/spine';
@@ -83,41 +79,15 @@ describe('IMPROV_FACTS', () => {
   });
 });
 
-// ── Prompt Cards ──────────────────────────────────────────────────────────────
-describe('PROMPT_CARDS', () => {
-  it('is non-empty', () => assertNonEmpty(PROMPT_CARDS, 'PROMPT_CARDS'));
-  it('has unique ids', () => assertUniqueIds(PROMPT_CARDS, 'PROMPT_CARDS'));
-  it('covers all prompt categories', () => {
-    const cats = new Set(PROMPT_CARDS.map((c) => c.category));
-    (['first_line', 'occupation', 'location', 'what_not_to_say', 'title'] as const).forEach(
-      (cat) => expect(cats).toContain(cat),
-    );
-  });
-  it('every category has at least 1 card', () => {
-    (['first_line', 'occupation', 'location', 'what_not_to_say', 'title'] as const).forEach(
-      (cat) => {
-        const count = PROMPT_CARDS.filter((c) => c.category === cat).length;
-        expect(count, `Category ${cat} should have prompts`).toBeGreaterThan(0);
-      },
-    );
-  });
-});
-
 // ── Suggestions ───────────────────────────────────────────────────────────────
 describe('SUGGESTIONS', () => {
   it('is non-empty', () => assertNonEmpty(SUGGESTIONS, 'SUGGESTIONS'));
   it('has unique ids', () => assertUniqueIds(SUGGESTIONS, 'SUGGESTIONS'));
   it('covers all suggestion categories', () => {
     const cats = new Set(SUGGESTIONS.map((s) => s.category));
-    (['location', 'occupation', 'relationship', 'emotion', 'movie_title', 'word'] as const).forEach(
+    (['location', 'occupation', 'relationship', 'emotion', 'movie_title', 'word', 'first_line', 'what_not_to_say'] as const).forEach(
       (cat) => expect(cats).toContain(cat),
     );
-  });
-  it('grab bag categories each have at least 1 suggestion', () => {
-    (['location', 'occupation', 'relationship', 'emotion'] as const).forEach((cat) => {
-      const count = SUGGESTIONS.filter((s) => s.category === cat).length;
-      expect(count, `Grab bag category ${cat} must have suggestions`).toBeGreaterThan(0);
-    });
   });
 });
 
@@ -185,50 +155,14 @@ describe('IMPROV_PRINCIPLES', () => {
   });
 });
 
-// ── Replay Cards ──────────────────────────────────────────────────────────────
-describe('REPLAY_CARDS', () => {
-  it('is non-empty', () => assertNonEmpty(REPLAY_CARDS, 'REPLAY_CARDS'));
-  it('has unique ids', () => assertUniqueIds(REPLAY_CARDS, 'REPLAY_CARDS'));
-  it('covers all replay categories', () => {
-    const cats = new Set(REPLAY_CARDS.map((c) => c.category));
-    (['physicality', 'genre', 'emotional', 'structural', 'character'] as const).forEach(
-      (cat) => expect(cats).toContain(cat),
-    );
-  });
-});
-
 // ── Scene Constraints ─────────────────────────────────────────────────────────
 describe('SCENE_CONSTRAINTS', () => {
   it('is non-empty', () => assertNonEmpty(SCENE_CONSTRAINTS, 'SCENE_CONSTRAINTS'));
   it('has unique ids', () => assertUniqueIds(SCENE_CONSTRAINTS, 'SCENE_CONSTRAINTS'));
   it('covers all constraint categories', () => {
     const cats = new Set(SCENE_CONSTRAINTS.map((c) => c.category));
-    (['speech', 'physical', 'structural', 'relational'] as const).forEach(
+    (['speech', 'physical', 'structural', 'relational', 'game', 'replay'] as const).forEach(
       (cat) => expect(cats).toContain(cat),
-    );
-  });
-});
-
-// ── Game Modifiers ────────────────────────────────────────────────────────────
-describe('GAME_MODIFIERS', () => {
-  it('is non-empty', () => assertNonEmpty(GAME_MODIFIERS, 'GAME_MODIFIERS'));
-  it('has unique ids', () => assertUniqueIds(GAME_MODIFIERS, 'GAME_MODIFIERS'));
-  it('covers all modifier categories', () => {
-    const cats = new Set(GAME_MODIFIERS.map((m) => m.category));
-    (['restriction', 'role', 'format', 'constraint'] as const).forEach(
-      (cat) => expect(cats).toContain(cat),
-    );
-  });
-});
-
-// ── Emotions ──────────────────────────────────────────────────────────────────
-describe('EMOTIONS', () => {
-  it('is non-empty', () => assertNonEmpty(EMOTIONS, 'EMOTIONS'));
-  it('has unique ids', () => assertUniqueIds(EMOTIONS, 'EMOTIONS'));
-  it('covers all emotion families', () => {
-    const families = new Set(EMOTIONS.map((e) => e.family));
-    (['joy', 'sadness', 'anger', 'fear', 'surprise', 'disgust'] as const).forEach(
-      (f) => expect(families).toContain(f),
     );
   });
 });

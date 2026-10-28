@@ -6,6 +6,7 @@ import { MorePage } from '../../pages/MorePage';
 import { SplashPage } from '../../pages/SplashPage';
 import {
   FAVORITE_TOOLS_STORAGE_KEY,
+  parseFavoriteToolsSnapshot,
 } from '../../theme/favoriteTools';
 
 function renderedAllToolNames() {
@@ -58,5 +59,10 @@ describe('favorite tools', () => {
     const favoriteControl = screen.getByTestId('favorite-scene-all-tools');
     expect(favoriteControl.querySelector('span')).not.toHaveClass('animate-favorite-pop');
     expect(renderedAllToolNames()[0]).toBe('wheel');
+  });
+
+  it('carries favorites of merged tools over to the tool that absorbed them', () => {
+    expect(parseFavoriteToolsSnapshot(JSON.stringify(['prompts', 'emotion', 'replay', 'genres', 'timer', 'gone'])))
+      .toEqual(['suggestions', 'constraints', 'facts', 'timer']);
   });
 });

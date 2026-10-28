@@ -25,7 +25,7 @@ const SCREENS = [
   { name: '04-warmup', path: '/warmup' },
   { name: '05-timer', path: '/timer' },
   { name: '06-character', path: '/character' },
-  { name: '07-prompts', path: '/prompts' },
+  { name: '07-suggestions', path: '/suggestions' },
 ];
 
 const browser = await chromium.launch();

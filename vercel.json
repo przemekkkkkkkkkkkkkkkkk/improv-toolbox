@@ -29,7 +29,13 @@
     }
   ],
   "redirects": [
-    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true }
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
+    { "source": "/prompts", "destination": "/suggestions", "permanent": true },
+    { "source": "/emotion", "destination": "/suggestions", "permanent": true },
+    { "source": "/variants", "destination": "/constraints", "permanent": true },
+    { "source": "/replay", "destination": "/constraints", "permanent": true },
+    { "source": "/principles", "destination": "/facts", "permanent": true },
+    { "source": "/genres", "destination": "/facts", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/__spa-fallback.html" }

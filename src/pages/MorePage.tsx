@@ -21,7 +21,6 @@ interface HubItem {
 const ITEMS: HubItem[] = [
   { name: 'timer' },
   { name: 'character' },
-  { name: 'prompts' },
   { name: 'suggestions' },
   { name: 'formats' },
   { name: 'reflection' },
@@ -29,15 +28,10 @@ const ITEMS: HubItem[] = [
   { name: 'status' },
   { name: 'spine' },
   { name: 'jam', badge: 'Alpha' },
-  { name: 'principles' },
   { name: 'monologue' },
-  { name: 'genres' },
   { name: 'harold' },
-  { name: 'emotion' },
   { name: 'constraints' },
   { name: 'metronome', badge: 'Alpha' },
-  { name: 'variants' },
-  { name: 'replay' },
   { name: 'deconstruction' },
 ];
 

@@ -12,7 +12,6 @@ export const FAVORITE_TOOL_NAMES = [
   'facts',
   'timer',
   'character',
-  'prompts',
   'suggestions',
   'formats',
   'reflection',
@@ -20,17 +19,22 @@ export const FAVORITE_TOOL_NAMES = [
   'status',
   'spine',
   'jam',
-  'principles',
   'monologue',
-  'genres',
   'harold',
-  'emotion',
   'constraints',
   'metronome',
-  'variants',
-  'replay',
   'deconstruction',
 ] as const satisfies readonly FavoriteToolName[];
+
+/** Retired tools whose content moved into another tool — keeps old favorites alive. */
+const MERGED_FAVORITE_TOOLS: Record<string, FavoriteToolName> = {
+  prompts: 'suggestions',
+  emotion: 'suggestions',
+  variants: 'constraints',
+  replay: 'constraints',
+  principles: 'facts',
+  genres: 'facts',
+};
 
 const FAVORITE_TOOL_NAME_SET = new Set<string>(FAVORITE_TOOL_NAMES);
 const EMPTY_FAVORITES_SNAPSHOT = '[]';
@@ -50,7 +54,8 @@ function normalizeFavoriteTools(value: unknown): FavoriteToolName[] {
   const next: FavoriteToolName[] = [];
   const seen = new Set<string>();
 
-  for (const item of value) {
+  for (const raw of value) {
+    const item = typeof raw === 'string' ? MERGED_FAVORITE_TOOLS[raw] ?? raw : raw;
     if (typeof item !== 'string' || !FAVORITE_TOOL_NAME_SET.has(item) || seen.has(item)) {
       continue;
     }
@@ -239,4 +244,4 @@ export function syncFavoriteToolsDocumentState() {
   return favorites;
 }
 
-export const FAVORITE_TOOLS_INIT_SCRIPT = `(function(){var k='${FAVORITE_TOOLS_STORAGE_KEY}',a=${JSON.stringify(FAVORITE_TOOL_NAMES)},d=document.documentElement;function n(s){try{var p=JSON.parse(s||'[]');if(!Array.isArray(p))return [];}catch(_){return [];}var o=[],m={};for(var x=0;x<p.length;x++){var v=p[x];if(typeof v==='string'&&a.indexOf(v)>-1&&!m[v]){m[v]=1;o.push(v)}}return o}function r(f){d.dataset.favoriteTools=f.join(' ');d.dataset.hasFavoriteTools=f.length?'true':'false'}try{r(n(localStorage.getItem(k)))}catch(_){r([])}})();`;
+export const FAVORITE_TOOLS_INIT_SCRIPT = `(function(){var k='${FAVORITE_TOOLS_STORAGE_KEY}',a=${JSON.stringify(FAVORITE_TOOL_NAMES)},l=${JSON.stringify(MERGED_FAVORITE_TOOLS)},d=document.documentElement;function n(s){try{var p=JSON.parse(s||'[]');if(!Array.isArray(p))return [];}catch(_){return [];}var o=[],m={};for(var x=0;x<p.length;x++){var v=p[x];v=l[v]||v;if(typeof v==='string'&&a.indexOf(v)>-1&&!m[v]){m[v]=1;o.push(v)}}return o}function r(f){d.dataset.favoriteTools=f.join(' ');d.dataset.hasFavoriteTools=f.length?'true':'false'}try{r(n(localStorage.getItem(k)))}catch(_){r([])}})();`;

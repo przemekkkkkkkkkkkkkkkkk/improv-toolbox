@@ -2,17 +2,17 @@ import type { ComponentType } from 'react';
 import type { IconProps } from '../components/icons/createIcon';
 import {
   IconMain, IconWheel, IconScene, IconWarmup, IconFacts, IconMore, IconTimer, IconCharacter,
-  IconPrompts, IconSuggestions, IconFormats, IconReflection, IconSoundscape, IconStatus,
-  IconSpine, IconJam, IconPrinciples, IconMonologue, IconGenres, IconHarold, IconEmotion,
-  IconConstraints, IconMetronome, IconVariants, IconReplay, IconDeconstruction,
+  IconSuggestions, IconFormats, IconReflection, IconSoundscape, IconStatus,
+  IconSpine, IconJam, IconMonologue, IconHarold,
+  IconConstraints, IconMetronome, IconDeconstruction,
 } from '../components/icons';
 
 export type FeatureName =
   | 'wheel' | 'scene' | 'warmup' | 'facts' | 'more'
-  | 'timer' | 'character' | 'prompts' | 'suggestions' | 'formats'
+  | 'timer' | 'character' | 'suggestions' | 'formats'
   | 'reflection' | 'soundscape' | 'status' | 'spine' | 'jam'
-  | 'principles' | 'monologue' | 'genres' | 'harold' | 'emotion'
-  | 'constraints' | 'metronome' | 'variants' | 'replay' | 'deconstruction'
+  | 'monologue' | 'harold'
+  | 'constraints' | 'metronome' | 'deconstruction'
   | 'splash';
 
 export interface FeatureTheme {
@@ -46,7 +46,6 @@ export const FEATURES: Record<FeatureName, FeatureTheme> = {
   more:           { ...A, Icon: IconMore },
   timer:          { ...A, Icon: IconTimer },
   character:      { ...A, Icon: IconCharacter },
-  prompts:        { ...A, Icon: IconPrompts },
   suggestions:    { ...A, Icon: IconSuggestions },
   formats:        { ...A, Icon: IconFormats },
   reflection:     { ...A, Icon: IconReflection },
@@ -54,15 +53,10 @@ export const FEATURES: Record<FeatureName, FeatureTheme> = {
   status:         { ...A, Icon: IconStatus },
   spine:          { ...A, Icon: IconSpine },
   jam:            { ...A, Icon: IconJam },
-  principles:     { ...A, Icon: IconPrinciples },
   monologue:      { ...A, Icon: IconMonologue },
-  genres:         { ...A, Icon: IconGenres },
   harold:         { ...A, Icon: IconHarold },
-  emotion:        { ...A, Icon: IconEmotion },
   constraints:    { ...A, Icon: IconConstraints },
   metronome:      { ...A, Icon: IconMetronome },
-  variants:       { ...A, Icon: IconVariants },
-  replay:         { ...A, Icon: IconReplay },
   deconstruction: { ...A, Icon: IconDeconstruction },
   splash:         { ...A, Icon: IconMain },
 };

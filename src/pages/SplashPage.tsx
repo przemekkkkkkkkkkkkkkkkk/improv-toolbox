@@ -17,9 +17,9 @@ import {
 
 /** The directory of tools, in launcher order. */
 const TILES: FavoriteToolName[] = [
-  'wheel', 'scene', 'warmup', 'facts', 'character', 'prompts', 'suggestions',
-  'monologue', 'emotion', 'constraints', 'replay', 'variants', 'spine',
-  'formats', 'principles', 'genres', 'timer', 'metronome', 'soundscape',
+  'wheel', 'scene', 'warmup', 'facts', 'character', 'suggestions',
+  'monologue', 'constraints', 'spine',
+  'formats', 'timer', 'metronome', 'soundscape',
   'status', 'harold', 'jam', 'deconstruction', 'reflection',
 ];
 const ALPHA = new Set<FavoriteToolName>(['jam', 'metronome']);

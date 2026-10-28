@@ -49,13 +49,8 @@ Zaprojektowana z myślą o polskich zespołach improwizacyjnych. Działa offline
 - Każdą cechę można przerzucić osobno
 - ~108 unikalnych wartości do losowania
 
-### 🃏 Karty Promptów
-- 60 kart w 5 kategoriach: pierwsza kwestia, zawód, miejsce, czego nie mówić, tytuł
-- Duży format — czytelny z odległości
-
 ### 🎲 Sugestie od Publiczności
-- 87 sugestii w 6 kategoriach: miejsce, zawód, relacja, emocja, tytuł filmowy, słowo
-- Tryb „losowego zestawu" — pokazuje 4 losowe sugestie naraz
+- Sugestie w 8 kategoriach: miejsce, zawód, relacja, emocja, tytuł, słowo, pierwsza kwestia, czego nie mówić
 
 ### 📖 Biblioteka Form
 - 18 form improwizacyjnych z opisami i zasadami
@@ -146,8 +141,7 @@ Zawiera **15 narzędzi** w dwóch językach (PL / EN), działa offline i jest zo
 - 📖 **Ciekawostki** — 60 faktów o historii i technikach improwizacji, przydatnych na warsztatach.
 - ⏱️ **Timer** — odliczanie z presetami i trybem pełnoekranowym; wibruje gdy czas minie.
 - 🎭 **Budowniczy Postaci** — losuje 6 cech postaci (zawód, pragnienie, dziwactwo, mowa, emocja, status) z możliwością przerzucenia każdej z osobna.
-- 🃏 **Karty Promptów** — 60 kart w 5 kategoriach, wyświetlane w dużym formacie czytelnym z odległości.
-- 🎲 **Sugestie od Publiczności** — 87 sugestii w 6 kategoriach plus tryb losowego zestawu (4 naraz).
+- 🎲 **Sugestie od Publiczności** — sugestie w 8 kategoriach, w tym pierwsze kwestie i „czego nie mówić”.
 - 📖 **Biblioteka Form** — 18 form improwizacyjnych z opisami i zasadami, filtrowanych po trudności.
 - 📋 **Planista Prób** — buduj plan próby z gotowych bloków, losuj kolejność i eksportuj jako tekst.
 - 💭 **Pytania Refleksyjne** — 20 pytań po-scenicznych dla trenerów w 5 kategoriach (Gra, CROW, Ensemble, Edycja, Postać).

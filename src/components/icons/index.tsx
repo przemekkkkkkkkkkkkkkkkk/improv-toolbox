@@ -165,31 +165,12 @@ export const IconJam = createIcon('IconJam', (
   </>
 ));
 
-// Principles — lightbulb
-export const IconPrinciples = createIcon('IconPrinciples', (
-  <>
-    <path d="M12 3a6 6 0 0 0-3.8 10.6c.8.7 1.3 1.4 1.3 2.4h5c0-1 .5-1.7 1.3-2.4A6 6 0 0 0 12 3z" />
-    <path d="M9.5 19h5M10.5 21.5h3" />
-    <circle cx="12" cy="9.5" r="1.2" fill="var(--icon-accent)" stroke="none" />
-  </>
-));
-
 // Monologue — microphone
 export const IconMonologue = createIcon('IconMonologue', (
   <>
     <rect x="9" y="3" width="6" height="11" rx="3" />
     <path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6" />
     <circle cx="12" cy="6.5" r="1.1" fill="var(--icon-accent)" stroke="none" />
-  </>
-));
-
-// Genres — film clapper
-export const IconGenres = createIcon('IconGenres', (
-  <>
-    <path d="M3.5 9.2 4.6 5l16.4 1.3-.6 3z" />
-    <path d="M8.2 5.4 6.6 8.9M13 5.8l-1.6 3.5M17.6 6.2 16 9.7" />
-    <rect x="3.5" y="9.2" width="17" height="9.8" rx="1.8" />
-    <circle cx="6.5" cy="14" r="1.1" fill="var(--icon-accent)" stroke="none" />
   </>
 ));
 
@@ -225,25 +206,6 @@ export const IconMetronome = createIcon('IconMetronome', (
     <path d="M6.6 15h10.8" />
     <path d="M12 18 16 6.5" />
     <circle cx="13.6" cy="12" r="1.15" fill="var(--icon-accent)" stroke="none" />
-  </>
-));
-
-// Game variants — puzzle piece
-export const IconVariants = createIcon('IconVariants', (
-  <>
-    <path d="M10 4.5a2 2 0 0 1 4 0V6h2.4a1 1 0 0 1 1 1v2.6H16a2 2 0 1 0 0 4h1.4V17a1 1 0 0 1-1 1H14v-1.5a2 2 0 1 0-4 0V18H6.6a1 1 0 0 1-1-1v-3.4H7a2 2 0 1 0 0-4H5.6V7a1 1 0 0 1 1-1H10z" />
-    <circle cx="11.5" cy="11.3" r="1.1" fill="var(--icon-accent)" stroke="none" />
-  </>
-));
-
-// Replay — loop arrows
-export const IconReplay = createIcon('IconReplay', (
-  <>
-    <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5" />
-    <path d="M20 4v4.5h-4.5" />
-    <path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.5" />
-    <path d="M4 20v-4.5h4.5" />
-    <circle cx="12" cy="12" r="1.2" fill="var(--icon-accent)" stroke="none" />
   </>
 ));
 

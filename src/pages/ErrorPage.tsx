@@ -19,7 +19,7 @@ interface AppErrorPageProps {
 const quickMoves = [
   { to: '/scene', labelKey: 'error.actions.scene', fallback: 'Scene', Icon: IconScene },
   { to: '/warmup', labelKey: 'error.actions.warmup', fallback: 'Warmup', Icon: IconWarmup },
-  { to: '/prompts', labelKey: 'error.actions.prompts', fallback: 'Prompts', Icon: IconPrompts },
+  { to: '/suggestions', labelKey: 'error.actions.prompts', fallback: 'Prompts', Icon: IconPrompts },
 ];
 
 const copyFallbacks = {
