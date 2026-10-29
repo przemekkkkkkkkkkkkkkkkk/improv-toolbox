@@ -86,11 +86,24 @@ export function createServiceWorkerOptions(directory, buildFingerprint) {
     clientsClaim: true,
     cleanupOutdatedCaches: true,
 
-    // Client-side routing: any navigation that isn't a static file is served the
-    // SPA shell from precache, then React Router renders the real route. The
-    // denylist keeps asset/file requests off the navigation handler.
-    navigateFallback: '/__spa-fallback.html',
-    navigateFallbackDenylist: [/^\/assets\//, /\/sounds\//, /\.[^/]+$/],
+    // Pages are network-first: serving HTML from precache meant every launch
+    // showed the previous deploy until the new SW installed and reloaded the
+    // page (and installed iOS PWAs could stay stale for days). Online, the
+    // fresh HTML always wins; offline (or >3 s), the last visited copy, then
+    // the precached SPA shell. directoryIndex: null keeps `/` off the
+    // cache-first precache route so it reaches this handler.
+    directoryIndex: null,
+    runtimeCaching: [
+      {
+        urlPattern: ({ request }) => request.mode === 'navigate',
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'pages',
+          networkTimeoutSeconds: 3,
+          precacheFallback: { fallbackURL: '/__spa-fallback.html' },
+        },
+      },
+    ],
   };
 }
 

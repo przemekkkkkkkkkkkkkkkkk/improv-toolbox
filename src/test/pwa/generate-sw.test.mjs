@@ -57,4 +57,16 @@ describe('service-worker cache versioning', () => {
     expect(options.clientsClaim).toBe(true);
     expect(options.cleanupOutdatedCaches).toBe(true);
   });
+
+  it('serves page navigations network-first so a deploy is visible on the next launch', async () => {
+    const directory = await createBuildFixture();
+    const options = createServiceWorkerOptions(directory, 'x');
+    const [route] = options.runtimeCaching;
+
+    expect(options.navigateFallback).toBeUndefined();
+    expect(options.directoryIndex).toBeNull();
+    expect(route.handler).toBe('NetworkFirst');
+    expect(route.urlPattern({ request: { mode: 'navigate' } })).toBe(true);
+    expect(route.urlPattern({ request: { mode: 'cors' } })).toBe(false);
+  });
 });
