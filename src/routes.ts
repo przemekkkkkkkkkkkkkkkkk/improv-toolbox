@@ -8,6 +8,7 @@ export default [
   // Content Entry pages: one indexable page per warmup game (SEO surface).
   route("warmups/:slug", "routes/warmup-entry.tsx"),
   route("facts", "routes/facts.tsx"),
+  route("community", "routes/community.tsx"),
   route("more", "routes/more.tsx"),
   route("timer", "routes/timer.tsx"),
   route("character", "routes/character.tsx"),

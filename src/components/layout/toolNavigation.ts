@@ -7,7 +7,7 @@ export interface PrimaryNavItem {
   labelKey: string;
 }
 
-export type ToolNavId = Exclude<FeatureName, 'more' | 'splash'>;
+export type ToolNavId = Exclude<FeatureName, 'more' | 'splash' | 'community'>;
 
 export interface ToolNavItem {
   id: ToolNavId;
@@ -21,6 +21,7 @@ export const PRIMARY_NAV_ITEMS: PrimaryNavItem[] = [
   { id: 'scene', path: '/scene', labelKey: 'nav.scene' },
   { id: 'warmup', path: '/warmup', labelKey: 'nav.warmup' },
   { id: 'facts', path: '/facts', labelKey: 'nav.facts' },
+  { id: 'community', path: '/community', labelKey: 'nav.community' },
 ];
 
 export const TOOL_NAV_ITEMS: ToolNavItem[] = [

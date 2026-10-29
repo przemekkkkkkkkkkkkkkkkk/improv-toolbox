@@ -219,6 +219,15 @@ export const IconDeconstruction = createIcon('IconDeconstruction', (
   </>
 ));
 
+// Community — map pin over a stage floor (find your stage)
+export const IconCommunity = createIcon('IconCommunity', (
+  <>
+    <path d="M12 17.5c3.6-3.9 5.4-6.7 5.4-9.3a5.4 5.4 0 1 0-10.8 0c0 2.6 1.8 5.4 5.4 9.3z" />
+    <path d="M5 20.5h14" />
+    <circle cx="12" cy="8.3" r="1.9" fill="var(--icon-accent)" stroke="none" />
+  </>
+));
+
 /* ── UI / control glyphs ─────────────────────────────────────────────────── */
 
 export const IconRefresh = createIcon('IconRefresh', (
@@ -481,6 +490,15 @@ export const IconUsers = createIcon('IconUsers', (
     <path d="M3.5 19a5.5 5.5 0 0 1 11 0" />
     <path d="M16 5.3a3 3 0 0 1 0 5.4" />
     <path d="M15.5 13.7A5.5 5.5 0 0 1 20.5 19" />
+  </>
+));
+
+// School — mortarboard
+export const IconSchool = createIcon('IconSchool', (
+  <>
+    <path d="M2.5 9.5 12 5l9.5 4.5L12 14z" />
+    <path d="M6.5 11.5V16c1.6 1.6 3.4 2.3 5.5 2.3s3.9-.7 5.5-2.3v-4.5" />
+    <path d="M21.5 9.5V15" />
   </>
 ));
 

@@ -115,7 +115,8 @@
     "scene": "Scene",
     "warmup": "Warmup",
     "facts": "Facts",
-    "more": "More"
+    "more": "More",
+    "community": "Community"
   },
   "intro": {
     "progress": "{{current}} of {{total}}",
@@ -2995,6 +2996,62 @@
       "current": "Up to date",
       "updating": "Updating…",
       "failed": "Couldn't check"
+    }
+  },
+  "community": {
+    "title": "Find your stage",
+    "subtitle": "Improv theaters, groups and schools around the world",
+    "kinds": {
+      "theater": {
+        "title": "Theaters",
+        "one": "Theater",
+        "desc": "Venues with a regular show schedule — go and watch tonight."
+      },
+      "group": {
+        "title": "Groups",
+        "one": "Group",
+        "desc": "Ensembles and troupes — follow them to wherever they play next."
+      },
+      "school": {
+        "title": "Schools",
+        "one": "School",
+        "desc": "Classes and courses — the place to start practicing."
+      }
+    },
+    "count": "{{count}} listed",
+    "search": "Name or city",
+    "country": "Country",
+    "allCountries": "All countries",
+    "empty": "Nothing here yet. Try another country or search.",
+    "also": "Also a {{kind}}",
+    "mine": "Added by you",
+    "remove": "Remove",
+    "add": "Add a place",
+    "missing": {
+      "title": "Missing your scene?",
+      "desc": "Add a place to your list, look around on the map, or tell us so everyone can see it.",
+      "maps": "Improv on Maps",
+      "suggest": "Suggest it for everyone →"
+    },
+    "form": {
+      "title": "Add a place",
+      "kinds": "What is it?",
+      "name": "Name",
+      "city": "City",
+      "country": "Country",
+      "url": "Website",
+      "note": "Shows up on this device right away.",
+      "save": "Add",
+      "cancel": "Cancel",
+      "share": "Suggest it for everyone",
+      "shareNote": "We review suggestions before adding them to the shared list."
+    },
+    "addShort": "+ Add",
+    "notice": {
+      "saved": "Added to your list.",
+      "sending": "Added to your list. Sending suggestion…",
+      "shared": "Added to your list and sent for review. Thanks!",
+      "shareFailed": "Added to your list. Couldn’t send the suggestion — try “Suggest it for everyone” below later."
     }
   }
 }

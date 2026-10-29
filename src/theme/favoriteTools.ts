@@ -1,6 +1,6 @@
 import type { FeatureName } from './features';
 
-export type FavoriteToolName = Exclude<FeatureName, 'more' | 'splash'>;
+export type FavoriteToolName = Exclude<FeatureName, 'more' | 'splash' | 'community'>;
 
 export const FAVORITE_TOOLS_STORAGE_KEY = 'improv.favoriteTools.v1';
 export const FAVORITE_TOOLS_CHANGE_EVENT = 'improv-favorite-tools-change';

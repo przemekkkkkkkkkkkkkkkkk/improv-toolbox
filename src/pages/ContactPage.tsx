@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PageContainer } from '../components/layout/PageContainer';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Button } from '../components/ui/Button';
-import { IconCheck, IconMail } from '../components/icons';
+import { IconCheck, IconChevronDown, IconMail } from '../components/icons';
 import { IS_NATIVE_BUILD } from '../native/platform';
 import {
   getContactFormEndpoint,
@@ -263,21 +263,24 @@ export function ContactPage() {
                   error={errorMessage('topic')}
                   errorId="contact-topic-error"
                 >
-                  <select
-                    id="contact-topic"
-                    name="topic"
-                    required
-                    disabled={submitting}
-                    aria-invalid={!!fieldErrors.topic}
-                    aria-describedby={fieldErrors.topic ? 'contact-topic-error' : undefined}
-                    onChange={(event) => validateField('topic', event.currentTarget.value)}
-                    className={`${CONTROL_CLASS} ${fieldErrors.topic ? INVALID_CONTROL_CLASS : ''}`}
-                  >
-                    <option value="feedback">{t('contact.form.topic.feedback')}</option>
-                    <option value="bug">{t('contact.form.topic.bug')}</option>
-                    <option value="idea">{t('contact.form.topic.idea')}</option>
-                    <option value="other">{t('contact.form.topic.other')}</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="contact-topic"
+                      name="topic"
+                      required
+                      disabled={submitting}
+                      aria-invalid={!!fieldErrors.topic}
+                      aria-describedby={fieldErrors.topic ? 'contact-topic-error' : undefined}
+                      onChange={(event) => validateField('topic', event.currentTarget.value)}
+                      className={`${CONTROL_CLASS} appearance-none pr-10 cursor-pointer ${fieldErrors.topic ? INVALID_CONTROL_CLASS : ''}`}
+                    >
+                      <option value="feedback">{t('contact.form.topic.feedback')}</option>
+                      <option value="bug">{t('contact.form.topic.bug')}</option>
+                      <option value="idea">{t('contact.form.topic.idea')}</option>
+                      <option value="other">{t('contact.form.topic.other')}</option>
+                    </select>
+                    <IconChevronDown size={18} aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-ink-muted" />
+                  </div>
                 </Field>
 
                 <Field

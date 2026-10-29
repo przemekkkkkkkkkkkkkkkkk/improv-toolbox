@@ -4,7 +4,7 @@ import {
   IconMain, IconWheel, IconScene, IconWarmup, IconFacts, IconMore, IconTimer, IconCharacter,
   IconSuggestions, IconFormats, IconReflection, IconSoundscape, IconStatus,
   IconSpine, IconJam, IconMonologue, IconHarold,
-  IconConstraints, IconMetronome, IconDeconstruction,
+  IconConstraints, IconMetronome, IconDeconstruction, IconCommunity,
 } from '../components/icons';
 
 export type FeatureName =
@@ -12,7 +12,7 @@ export type FeatureName =
   | 'timer' | 'character' | 'suggestions' | 'formats'
   | 'reflection' | 'soundscape' | 'status' | 'spine' | 'jam'
   | 'monologue' | 'harold'
-  | 'constraints' | 'metronome' | 'deconstruction'
+  | 'constraints' | 'metronome' | 'deconstruction' | 'community'
   | 'splash';
 
 export interface FeatureTheme {
@@ -58,6 +58,7 @@ export const FEATURES: Record<FeatureName, FeatureTheme> = {
   constraints:    { ...A, Icon: IconConstraints },
   metronome:      { ...A, Icon: IconMetronome },
   deconstruction: { ...A, Icon: IconDeconstruction },
+  community:      { ...A, Icon: IconCommunity },
   splash:         { ...A, Icon: IconMain },
 };
 

@@ -115,7 +115,8 @@
     "scene": "Scéna",
     "warmup": "Rozcvičky",
     "facts": "Fakta",
-    "more": "Více"
+    "more": "Více",
+    "community": "Komunita"
   },
   "favorites": {
     "title": "Oblíbené",
@@ -2995,6 +2996,62 @@
     "favorite": {
       "title": "Oblíbené po ruce",
       "body": "Označte srdíčkem nástroje, které používáte nejčastěji. Zůstanou připnuté nahoře."
+    }
+  },
+  "community": {
+    "title": "Najdi svou scénu",
+    "subtitle": "Improvizační divadla, skupiny a školy po celém světě",
+    "kinds": {
+      "theater": {
+        "title": "Divadla",
+        "one": "Divadlo",
+        "desc": "Scény s pravidelným programem: zajdi se podívat ještě dnes."
+      },
+      "group": {
+        "title": "Skupiny",
+        "one": "Skupina",
+        "desc": "Soubory a improvizační skupiny: sleduj, kde hrají příště."
+      },
+      "school": {
+        "title": "Školy",
+        "one": "Škola",
+        "desc": "Kurzy a workshopy: tady začneš trénovat."
+      }
+    },
+    "count": "V seznamu: {{count}}",
+    "search": "Hledat…",
+    "country": "Země",
+    "allCountries": "Všechny země",
+    "empty": "Zatím tu nic není. Zkus jinou zemi nebo hledání.",
+    "also": "Také: {{kind}}",
+    "mine": "Přidáno tebou",
+    "remove": "Odebrat",
+    "add": "Přidat místo",
+    "addShort": "+ Přidat",
+    "missing": {
+      "title": "Chybí tvoje scéna?",
+      "desc": "Přidej místo do svého seznamu, podívej se na mapu, nebo nám dej vědět, ať ho vidí všichni.",
+      "maps": "Improvizace na Mapách",
+      "suggest": "Navrhnout pro všechny →"
+    },
+    "form": {
+      "title": "Přidat místo",
+      "kinds": "Co to je?",
+      "name": "Název",
+      "city": "Město",
+      "country": "Země",
+      "url": "Web",
+      "note": "Hned se objeví na tomto zařízení.",
+      "save": "Přidat",
+      "cancel": "Zrušit",
+      "share": "Navrhnout pro všechny",
+      "shareNote": "Návrhy před přidáním do společného seznamu kontrolujeme."
+    },
+    "notice": {
+      "saved": "Přidáno do tvého seznamu.",
+      "sending": "Přidáno do tvého seznamu. Odesíláme návrh…",
+      "shared": "Přidáno do tvého seznamu a odesláno ke kontrole. Díky!",
+      "shareFailed": "Přidáno do tvého seznamu. Návrh se nepodařilo odeslat — zkus to později přes „Navrhnout pro všechny“ níže."
     }
   }
 }

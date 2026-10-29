@@ -187,7 +187,7 @@ export interface GlossaryTerm {
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
-export type TabId = 'splash' | 'wheel' | 'scene' | 'warmup' | 'facts';
+export type TabId = 'splash' | 'wheel' | 'scene' | 'warmup' | 'facts' | 'community';
 
 // ─── Deconstruction ──────────────────────────────────────────────────────────
 

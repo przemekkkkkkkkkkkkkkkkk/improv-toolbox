@@ -115,7 +115,8 @@
     "scene": "Scena",
     "warmup": "Rozgrzewka",
     "facts": "Fakty",
-    "more": "Więcej"
+    "more": "Więcej",
+    "community": "Społeczność"
   },
   "intro": {
     "progress": "{{current}} z {{total}}",
@@ -2995,6 +2996,62 @@
       "current": "Masz najnowszą",
       "updating": "Aktualizowanie…",
       "failed": "Nie udało się sprawdzić"
+    }
+  },
+  "community": {
+    "title": "Znajdź swoją scenę",
+    "subtitle": "Teatry, grupy i szkoły impro na całym świecie",
+    "kinds": {
+      "theater": {
+        "title": "Teatry",
+        "one": "Teatr",
+        "desc": "Sceny z regularnym repertuarem: idź i obejrzyj spektakl."
+      },
+      "group": {
+        "title": "Grupy",
+        "one": "Grupa",
+        "desc": "Zespoły i grupy impro: śledź, gdzie grają najbliżej."
+      },
+      "school": {
+        "title": "Szkoły",
+        "one": "Szkoła",
+        "desc": "Kursy i warsztaty: tu zaczniesz ćwiczyć."
+      }
+    },
+    "count": "Na liście: {{count}}",
+    "search": "Szukaj…",
+    "country": "Kraj",
+    "allCountries": "Wszystkie kraje",
+    "empty": "Nic tu nie ma. Zmień kraj albo wyszukiwanie.",
+    "also": "Też: {{kind}}",
+    "mine": "Dodane przez Ciebie",
+    "remove": "Usuń",
+    "add": "Dodaj miejsce",
+    "missing": {
+      "title": "Brakuje Twojej sceny?",
+      "desc": "Dodaj miejsce do swojej listy, poszukaj na mapie albo daj nam znać, żeby widzieli je wszyscy.",
+      "maps": "Impro na Mapach",
+      "suggest": "Zaproponuj dla wszystkich →"
+    },
+    "form": {
+      "title": "Dodaj miejsce",
+      "kinds": "Co to jest?",
+      "name": "Nazwa",
+      "city": "Miasto",
+      "country": "Kraj",
+      "url": "Strona WWW",
+      "note": "Od razu pojawi się na tym urządzeniu.",
+      "save": "Dodaj",
+      "cancel": "Anuluj",
+      "share": "Zaproponuj dla wszystkich",
+      "shareNote": "Sprawdzamy propozycje, zanim trafią na wspólną listę."
+    },
+    "addShort": "+ Dodaj",
+    "notice": {
+      "saved": "Dodano do Twojej listy.",
+      "sending": "Dodano do Twojej listy. Wysyłamy propozycję…",
+      "shared": "Dodano do Twojej listy i wysłano do sprawdzenia. Dzięki!",
+      "shareFailed": "Dodano do Twojej listy. Nie udało się wysłać propozycji — spróbuj później przez „Zaproponuj dla wszystkich” poniżej."
     }
   }
 }
