@@ -3024,14 +3024,11 @@
     "allCountries": "Wszystkie kraje",
     "empty": "Nic tu nie ma. Zmień kraj albo wyszukiwanie.",
     "also": "Też: {{kind}}",
-    "mine": "Dodane przez Ciebie",
-    "remove": "Usuń",
     "add": "Dodaj miejsce",
     "missing": {
       "title": "Brakuje Twojej sceny?",
-      "desc": "Dodaj miejsce do swojej listy, poszukaj na mapie albo daj nam znać, żeby widzieli je wszyscy.",
-      "maps": "Impro na Mapach",
-      "suggest": "Zaproponuj dla wszystkich →"
+      "desc": "Zgłoś miejsce, którego brakuje, albo poszukaj impro na mapie.",
+      "maps": "Impro na Mapach"
     },
     "form": {
       "title": "Dodaj miejsce",
@@ -3040,18 +3037,17 @@
       "city": "Miasto",
       "country": "Kraj",
       "url": "Strona WWW",
-      "note": "Od razu pojawi się na tym urządzeniu.",
-      "save": "Dodaj",
+      "note": "Zgłoszenie trafi prosto do nas. Sprawdzimy je i dodamy do listy dla wszystkich.",
       "cancel": "Anuluj",
-      "share": "Zaproponuj dla wszystkich",
-      "shareNote": "Sprawdzamy propozycje, zanim trafią na wspólną listę."
+      "send": "Wyślij",
+      "sending": "Wysyłamy…"
     },
     "addShort": "+ Dodaj",
     "notice": {
-      "saved": "Dodano do Twojej listy.",
-      "sending": "Dodano do Twojej listy. Wysyłamy propozycję…",
-      "shared": "Dodano do Twojej listy i wysłano do sprawdzenia. Dzięki!",
-      "shareFailed": "Dodano do Twojej listy. Nie udało się wysłać propozycji — spróbuj później przez „Zaproponuj dla wszystkich” poniżej."
-    }
+      "sent": "Dzięki! Wysłaliśmy „{{name}}” do sprawdzenia.",
+      "failed": "Nie udało się wysłać. Sprawdź połączenie i spróbuj jeszcze raz."
+    },
+    "onMap": "Pokaż na mapie",
+    "onMapOf": "Pokaż {{name}} na mapie"
   }
 }

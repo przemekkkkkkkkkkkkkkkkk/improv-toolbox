@@ -3024,15 +3024,12 @@
     "allCountries": "Všechny země",
     "empty": "Zatím tu nic není. Zkus jinou zemi nebo hledání.",
     "also": "Také: {{kind}}",
-    "mine": "Přidáno tebou",
-    "remove": "Odebrat",
     "add": "Přidat místo",
     "addShort": "+ Přidat",
     "missing": {
       "title": "Chybí tvoje scéna?",
-      "desc": "Přidej místo do svého seznamu, podívej se na mapu, nebo nám dej vědět, ať ho vidí všichni.",
-      "maps": "Improvizace na Mapách",
-      "suggest": "Navrhnout pro všechny →"
+      "desc": "Dejte nám vědět o místě, které chybí, nebo hledejte improvizaci na mapě.",
+      "maps": "Improvizace na Mapách"
     },
     "form": {
       "title": "Přidat místo",
@@ -3041,17 +3038,16 @@
       "city": "Město",
       "country": "Země",
       "url": "Web",
-      "note": "Hned se objeví na tomto zařízení.",
-      "save": "Přidat",
+      "note": "Váš návrh přijde přímo k nám. Zkontrolujeme ho a přidáme do seznamu pro všechny.",
       "cancel": "Zrušit",
-      "share": "Navrhnout pro všechny",
-      "shareNote": "Návrhy před přidáním do společného seznamu kontrolujeme."
+      "send": "Odeslat",
+      "sending": "Odesíláme…"
     },
     "notice": {
-      "saved": "Přidáno do tvého seznamu.",
-      "sending": "Přidáno do tvého seznamu. Odesíláme návrh…",
-      "shared": "Přidáno do tvého seznamu a odesláno ke kontrole. Díky!",
-      "shareFailed": "Přidáno do tvého seznamu. Návrh se nepodařilo odeslat — zkus to později přes „Navrhnout pro všechny“ níže."
-    }
+      "sent": "Díky! „{{name}}“ jsme poslali ke kontrole.",
+      "failed": "Odeslání se nezdařilo. Zkontrolujte připojení a zkuste to znovu."
+    },
+    "onMap": "Zobrazit na mapě",
+    "onMapOf": "Zobrazit {{name}} na mapě"
   }
 }

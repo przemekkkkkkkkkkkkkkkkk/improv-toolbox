@@ -3024,14 +3024,11 @@
     "allCountries": "All countries",
     "empty": "Nothing here yet. Try another country or search.",
     "also": "Also a {{kind}}",
-    "mine": "Added by you",
-    "remove": "Remove",
     "add": "Add a place",
     "missing": {
       "title": "Missing your scene?",
-      "desc": "Add a place to your list, look around on the map, or tell us so everyone can see it.",
-      "maps": "Improv on Maps",
-      "suggest": "Suggest it for everyone →"
+      "desc": "Tell us about a place that’s missing, or look for improv on the map.",
+      "maps": "Improv on Maps"
     },
     "form": {
       "title": "Add a place",
@@ -3040,18 +3037,17 @@
       "city": "City",
       "country": "Country",
       "url": "Website",
-      "note": "Shows up on this device right away.",
-      "save": "Add",
+      "note": "Your suggestion comes straight to us. We’ll check it and add it to the list for everyone.",
       "cancel": "Cancel",
-      "share": "Suggest it for everyone",
-      "shareNote": "We review suggestions before adding them to the shared list."
+      "send": "Send",
+      "sending": "Sending…"
     },
     "addShort": "+ Add",
     "notice": {
-      "saved": "Added to your list.",
-      "sending": "Added to your list. Sending suggestion…",
-      "shared": "Added to your list and sent for review. Thanks!",
-      "shareFailed": "Added to your list. Couldn’t send the suggestion — try “Suggest it for everyone” below later."
-    }
+      "sent": "Thanks! “{{name}}” was sent for review.",
+      "failed": "Couldn’t send. Check your connection and try again."
+    },
+    "onMap": "Show on map",
+    "onMapOf": "Show {{name}} on map"
   }
 }
