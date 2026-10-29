@@ -9,10 +9,10 @@ describe('BottomNav', () => {
     expect(document.querySelector('nav')).toBeInTheDocument();
   });
 
-  it('renders all 5 tabs', () => {
+  it('renders all 3 tabs', () => {
     render(<BottomNav />);
     const buttons = screen.getAllByRole('button');
-    expect(buttons.length).toBeGreaterThanOrEqual(5);
+    expect(buttons.length).toBe(3);
   });
 
   it('shows the navigation landmark', () => {
