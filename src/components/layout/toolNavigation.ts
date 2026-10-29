@@ -20,7 +20,6 @@ export const PRIMARY_NAV_ITEMS: PrimaryNavItem[] = [
   { id: 'wheel', path: '/wheel', labelKey: 'nav.wheel' },
   { id: 'scene', path: '/scene', labelKey: 'nav.scene' },
   { id: 'warmup', path: '/warmup', labelKey: 'nav.warmup' },
-  { id: 'facts', path: '/facts', labelKey: 'nav.facts' },
   { id: 'community', path: '/community', labelKey: 'nav.community' },
 ];
 

@@ -34,12 +34,11 @@ test.describe('Bottom navigation', () => {
     await expect(page.getByRole('heading', { name: 'Warmup Generator' })).toBeVisible();
   });
 
-  test('navigates to /facts via tab', async ({ page }) => {
+  test('navigates to /community via tab', async ({ page }) => {
     await goTo(page, '/');
     const nav = page.getByRole('navigation');
-    await nav.getByRole('button').nth(3).click();
-    await expect(page).toHaveURL(/\/facts/);
-    await expect(page.getByRole('heading', { name: 'Improv Facts' })).toBeVisible();
+    await nav.getByRole('button').nth(4).click();
+    await expect(page).toHaveURL(/\/community/);
   });
 
   test('home link in header navigates to /', async ({ page }) => {
