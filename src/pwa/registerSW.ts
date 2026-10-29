@@ -56,9 +56,9 @@ export function registerSW(): void {
 export type UpdateCheck = 'current' | 'updating' | 'failed';
 
 // Belt-and-braces over the SW update path: if the live deploy's build id
-// differs from the one baked into this bundle, drop every SW + cache and
-// reload from the network. Guarded once per target build so a CDN lag can't
-// cause a reload loop. Also backs the "Check for updates" button.
+// differs from the one baked into this bundle, switch to the live build.
+// Guarded once per target build so a CDN lag can't cause a reload loop. Also
+// backs the "Check for updates" button.
 export async function checkForUpdate(): Promise<UpdateCheck> {
   if (!navigator.onLine) return 'failed';
   try {
@@ -70,23 +70,44 @@ export async function checkForUpdate(): Promise<UpdateCheck> {
     if (sessionStorage.getItem(key) === build) return 'current';
     sessionStorage.setItem(key, build);
     showUpdatingOverlay();
-    // SW jobs are serialized per scope, so unregister() queues behind the
-    // in-flight update() that is precaching the whole new bundle, and on iOS
-    // it can stall there for good. Cap the purge and reload no matter what, so
-    // the overlay never outlives the download.
-    const purge = async () => {
+    // Purging only when no new SW is coming matters: SW jobs run one at a time
+    // per scope, so an unregister() issued mid-install waits out the whole
+    // precache download, and then the reload throws that download away.
+    if (!(await newWorkerTakesOver())) {
       const regs = (await navigator.serviceWorker?.getRegistrations()) ?? [];
       await Promise.all(regs.map((r) => r.unregister()));
       const keys = await caches.keys();
       await Promise.all(keys.map((k) => caches.delete(k)));
-    };
-    await Promise.race([purge().catch(() => {}), new Promise((r) => setTimeout(r, 4000))]);
+    }
     window.location.reload();
     return 'updating';
   } catch {
     /* offline or malformed: keep running the cached version */
     return 'failed';
   }
+}
+
+// Waits for a new SW (skipWaiting + clientsClaim) to finish precaching the
+// live build and take control. False when none is on the way: no SW, sw.js
+// unchanged, or the install failed. A slow install counts as on the way: it
+// keeps going after the reload and controllerchange reloads again when done.
+async function newWorkerTakesOver(): Promise<boolean> {
+  const sw = navigator.serviceWorker;
+  const reg = sw?.controller ? await sw.getRegistration() : undefined;
+  if (!reg) return false;
+  const tookOver = new Promise<boolean>((resolve) => {
+    sw.addEventListener('controllerchange', () => resolve(true), { once: true });
+  });
+  await reg.update();
+  const worker = reg.installing ?? reg.waiting;
+  if (!worker) return Promise.race([tookOver, Promise.resolve(false)]);
+  const failed = new Promise<boolean>((resolve) => {
+    worker.addEventListener('statechange', () => {
+      if (worker.state === 'redundant') resolve(false);
+    });
+  });
+  const slow = new Promise<boolean>((resolve) => setTimeout(() => resolve(true), 60_000));
+  return Promise.race([tookOver, failed, slow]);
 }
 
 // Plain DOM, not React: it must cover the page during the reload regardless
