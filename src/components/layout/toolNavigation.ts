@@ -17,7 +17,7 @@ export interface ToolNavItem {
 
 export const PRIMARY_NAV_ITEMS: PrimaryNavItem[] = [
   { id: 'splash', path: '/', labelKey: 'nav.main' },
-  { id: 'wheel', path: '/wheel', labelKey: 'nav.wheel' },
+  { id: 'warmup', path: '/warmup', labelKey: 'nav.warmup' },
   { id: 'community', path: '/community', labelKey: 'nav.community' },
 ];
 

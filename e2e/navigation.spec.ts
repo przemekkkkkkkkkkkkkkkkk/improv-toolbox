@@ -10,12 +10,12 @@ test.describe('Bottom navigation', () => {
     await expect(buttons).toHaveCount(3);
   });
 
-  test('navigates to /wheel via tab', async ({ page }) => {
+  test('navigates to /warmup via tab', async ({ page }) => {
     await goTo(page, '/');
     const nav = page.getByRole('navigation');
     await nav.getByRole('button').nth(1).click();
-    await expect(page).toHaveURL(/\/wheel/);
-    await expect(page.getByRole('heading', { name: 'Archetype Wheel' })).toBeVisible();
+    await expect(page).toHaveURL(/\/warmup/);
+    await expect(page.getByRole('heading', { name: 'Warmup Generator' })).toBeVisible();
   });
 
   test('navigates to /community via tab', async ({ page }) => {

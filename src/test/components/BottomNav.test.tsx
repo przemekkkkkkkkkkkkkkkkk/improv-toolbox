@@ -41,8 +41,8 @@ describe('BottomNav', () => {
   });
 
   it('marks the current tool route tab as active', () => {
-    render(<BottomNav />, { routerProps: { initialEntries: ['/wheel'] } });
-    // Main is first; Wheel is second and carries aria-current="page" on /wheel.
+    render(<BottomNav />, { routerProps: { initialEntries: ['/warmup'] } });
+    // Main is first; Warmup is second and carries aria-current="page" on /warmup.
     const buttons = screen.getAllByRole('button');
     expect(buttons[1].getAttribute('aria-current')).toBe('page');
   });
