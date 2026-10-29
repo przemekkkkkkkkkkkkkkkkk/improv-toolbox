@@ -41,13 +41,12 @@ const APP_ICON_VERSION = '2026-06-18';
 const VIEWPORT_CONTENT = IS_NATIVE_BUILD
   ? 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover'
   : 'width=device-width, initial-scale=1.0, viewport-fit=cover';
+// English text never hits the latin-ext unicode-range, so only Polish preloads it.
 const CRITICAL_FONT_PRELOADS = [
   bigShouldersLatinUrl,
-  bigShouldersLatinExtUrl,
   bricolageLatinUrl,
-  bricolageLatinExtUrl,
   hankenLatinUrl,
-  hankenLatinExtUrl,
+  ...(BUILD_LANG === 'en' ? [] : [bigShouldersLatinExtUrl, bricolageLatinExtUrl, hankenLatinExtUrl]),
 ];
 
 // Default per-page meta (title/description/canonical/og/twitter). Routes that
@@ -73,7 +72,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="UTF-8" />
         <link rel="icon" sizes="any" href={`/favicon.ico?v=${APP_ICON_VERSION}`} />
-        <link rel="icon" type="image/svg+xml" href={`/icon.svg?v=${APP_ICON_VERSION}`} />
         <link rel="icon" type="image/png" sizes="192x192" href={`/pwa-192x192.png?v=${APP_ICON_VERSION}`} />
         <link rel="manifest" href={`/manifest.${BUILD_LANG}.webmanifest`} />
         <meta name="viewport" content={VIEWPORT_CONTENT} />

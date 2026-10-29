@@ -24,12 +24,6 @@ const escapeXml = (value) =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;');
 
-function buildIconSvg(iconHref) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Improv Toolbox">
-  <image href="${iconHref}" x="0" y="0" width="512" height="512" preserveAspectRatio="xMidYMid meet"/>
-</svg>`;
-}
-
 function textLines(lines, x, y, size, color, weight = 500, lineHeight = 1.28) {
   return `<text x="${x}" y="${y}" fill="${color}" font-family="Hanken Grotesk, Inter, system-ui, Arial, sans-serif" font-size="${size}" font-weight="${weight}">
     ${lines.map((line, i) => `<tspan x="${x}" dy="${i === 0 ? 0 : size * lineHeight}">${escapeXml(line)}</tspan>`).join('\n')}
@@ -110,7 +104,6 @@ await sharp(pwa512)
   .toFile(join(pub, 'apple-touch-icon.png'));
 
 const iconDataHref = `data:image/png;base64,${pwa512.toString('base64')}`;
-writeFileSync(join(pub, 'icon.svg'), buildIconSvg(iconDataHref));
 
 const images = [
   {

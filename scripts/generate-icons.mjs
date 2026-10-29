@@ -17,18 +17,11 @@ const targets = [
 
 const faviconSizes = [16, 32, 48];
 
-function buildIconSvg(iconHref) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Improv Toolbox">
-  <image href="${iconHref}" x="0" y="0" width="512" height="512" preserveAspectRatio="xMidYMid meet"/>
-</svg>`;
-}
-
 const pwa512 = await sharp(source)
   .resize(512, 512, { fit: 'cover' })
   .png({ compressionLevel: 9 })
   .toBuffer();
 
-writeFileSync(join(pub, 'icon.svg'), buildIconSvg(`data:image/png;base64,${pwa512.toString('base64')}`));
 
 for (const { png, size } of targets) {
   await sharp(pwa512)

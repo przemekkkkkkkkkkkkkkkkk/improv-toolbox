@@ -36,6 +36,7 @@ function isPrecachedBuildFile(relativePath) {
   if (path.basename(relativePath).startsWith('workbox-')) return false;
   if (relativePath.startsWith('sounds/')) return false;
   if (path.basename(relativePath).startsWith('og-image')) return false;
+  if (relativePath.startsWith('warmups/') || relativePath === 'pwa-512x512.png') return false;
   return PRECACHE_EXTENSIONS.has(path.extname(relativePath));
 }
 
@@ -70,9 +71,11 @@ export function createServiceWorkerOptions(directory, buildFingerprint) {
 
     // Precache the app shell + hashed assets + prerendered pages. Exclude the
     // 61 MB sounds/ dir (streamed on demand, not part of the offline shell) and
-    // the social-share images (only ever fetched by crawlers, never the app).
+    // the social-share images (only ever fetched by crawlers, never the app),
+    // the prerendered /warmups/* SEO pages (offline they fall back to the SPA
+    // shell) and the 512px install icon (only the OS fetches it).
     globPatterns: ['**/*.{js,css,html,ico,svg,png,woff,woff2,webmanifest}'],
-    globIgnores: ['**/sounds/**', '**/og-image*', 'sw.js'],
+    globIgnores: ['**/sounds/**', '**/og-image*', 'warmups/**', 'pwa-512x512.png', 'sw.js'],
 
     // Give every distinct build a new cache. During activation Workbox keeps
     // this freshly installed cache and destroys every older precache for this

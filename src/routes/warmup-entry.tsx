@@ -3,18 +3,11 @@ import { Link, useParams, type MetaFunction } from 'react-router';
 import { warmupBySlug } from '../seo/warmupEntries';
 import { BUILD_LANG, canonicalUrl, hreflangLinksForPath } from '../seo/config';
 import type { SiteLang } from '../languages';
-import pl from '../locales/pl/translation.json';
-import en from '../locales/en/translation.json';
+import siteTranslation from '../locales/site';
 import { AppErrorPage } from '../pages/ErrorPage';
 
 type WarmupCopy = { name?: string; description?: string; tips?: string };
-const PL_WARMUPS = (pl as { warmups: Record<string, WarmupCopy> }).warmups;
-const EN_WARMUPS = (en as { warmups: Record<string, WarmupCopy> }).warmups;
-const WARMUP_COPY_BY_LANG = {
-  en: EN_WARMUPS,
-  pl: PL_WARMUPS,
-} satisfies Record<SiteLang, Record<string, WarmupCopy>>;
-const WARMUP_COPY = WARMUP_COPY_BY_LANG[BUILD_LANG];
+const WARMUP_COPY = (siteTranslation as { warmups: Record<string, WarmupCopy> }).warmups;
 const ENTRY_COPY = {
   en: {
     backToWarmups: 'Back to warmups',
@@ -50,7 +43,7 @@ const ENTRY_COPY = {
 export const meta: MetaFunction = ({ params }) => {
   const game = warmupBySlug(params.slug);
   if (!game) return [{ title: 'Improv Toolbox' }];
-  const copy = WARMUP_COPY[game.id] ?? EN_WARMUPS[game.id] ?? PL_WARMUPS[game.id] ?? {};
+  const copy = WARMUP_COPY[game.id] ?? {};
   const entry = ENTRY_COPY[BUILD_LANG];
   const name = copy.name ?? game.id;
   const desc = (copy.description ?? '').slice(0, 160);
