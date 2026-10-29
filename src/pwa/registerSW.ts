@@ -70,10 +70,17 @@ export async function checkForUpdate(): Promise<UpdateCheck> {
     if (sessionStorage.getItem(key) === build) return 'current';
     sessionStorage.setItem(key, build);
     showUpdatingOverlay();
-    const regs = (await navigator.serviceWorker?.getRegistrations()) ?? [];
-    await Promise.all(regs.map((r) => r.unregister()));
-    const keys = await caches.keys();
-    await Promise.all(keys.map((k) => caches.delete(k)));
+    // SW jobs are serialized per scope, so unregister() queues behind the
+    // in-flight update() that is precaching the whole new bundle, and on iOS
+    // it can stall there for good. Cap the purge and reload no matter what, so
+    // the overlay never outlives the download.
+    const purge = async () => {
+      const regs = (await navigator.serviceWorker?.getRegistrations()) ?? [];
+      await Promise.all(regs.map((r) => r.unregister()));
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+    };
+    await Promise.race([purge().catch(() => {}), new Promise((r) => setTimeout(r, 4000))]);
     window.location.reload();
     return 'updating';
   } catch {
