@@ -22,9 +22,9 @@ describe('BottomNav', () => {
 
   it('renders a custom icon in each tab', () => {
     const { container } = render(<BottomNav />);
-    // Each of the 5 tabs renders one custom SVG glyph (no emoji-as-UI).
+    // Each of the 3 tabs renders one custom SVG glyph (no emoji-as-UI).
     const icons = container.querySelectorAll('svg');
-    expect(icons.length).toBe(5);
+    expect(icons.length).toBe(3);
   });
 
   it('renders Main as the first tab', () => {

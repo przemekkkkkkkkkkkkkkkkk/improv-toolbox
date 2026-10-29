@@ -2,42 +2,26 @@ import { test, expect } from '@playwright/test';
 import { goTo } from './helpers';
 
 test.describe('Bottom navigation', () => {
-  test('renders 5 navigation tabs', async ({ page }) => {
+  test('renders 3 navigation tabs', async ({ page }) => {
     await goTo(page, '/');
     const nav = page.getByRole('navigation');
     await expect(nav).toBeVisible();
     const buttons = nav.getByRole('button');
-    await expect(buttons).toHaveCount(5);
+    await expect(buttons).toHaveCount(3);
   });
 
   test('navigates to /wheel via tab', async ({ page }) => {
     await goTo(page, '/');
     const nav = page.getByRole('navigation');
-    await nav.getByRole('button').nth(0).click();
+    await nav.getByRole('button').nth(1).click();
     await expect(page).toHaveURL(/\/wheel/);
     await expect(page.getByRole('heading', { name: 'Archetype Wheel' })).toBeVisible();
-  });
-
-  test('navigates to /scene via tab', async ({ page }) => {
-    await goTo(page, '/');
-    const nav = page.getByRole('navigation');
-    await nav.getByRole('button').nth(1).click();
-    await expect(page).toHaveURL(/\/scene/);
-    await expect(page.getByRole('heading', { name: 'Random Scene' })).toBeVisible();
-  });
-
-  test('navigates to /warmup via tab', async ({ page }) => {
-    await goTo(page, '/');
-    const nav = page.getByRole('navigation');
-    await nav.getByRole('button').nth(2).click();
-    await expect(page).toHaveURL(/\/warmup/);
-    await expect(page.getByRole('heading', { name: 'Warmup Generator' })).toBeVisible();
   });
 
   test('navigates to /community via tab', async ({ page }) => {
     await goTo(page, '/');
     const nav = page.getByRole('navigation');
-    await nav.getByRole('button').nth(4).click();
+    await nav.getByRole('button').nth(2).click();
     await expect(page).toHaveURL(/\/community/);
   });
 
