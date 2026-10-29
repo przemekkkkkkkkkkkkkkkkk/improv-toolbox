@@ -1,5 +1,5 @@
 import type { CSSProperties, HTMLAttributes } from 'react';
-import snakeMascot from '../../assets/brand/snake-mascot.png';
+import snakeMascot from '../../assets/brand/snake-mascot.webp';
 
 interface SnakeProps extends HTMLAttributes<HTMLSpanElement> {
   /** Pixel size for width & height. Default 30. */

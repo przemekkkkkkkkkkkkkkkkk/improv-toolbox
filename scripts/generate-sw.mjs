@@ -26,6 +26,7 @@ const PRECACHE_EXTENSIONS = new Set([
   '.ico',
   '.svg',
   '.png',
+  '.webp',
   '.woff',
   '.woff2',
   '.webmanifest',
@@ -70,11 +71,11 @@ export function createServiceWorkerOptions(directory, buildFingerprint) {
     swDest: path.join(directory, 'sw.js'),
 
     // Precache the app shell + hashed assets + prerendered pages. Exclude the
-    // 61 MB sounds/ dir (streamed on demand, not part of the offline shell) and
+    // 19 MB sounds/ dir (streamed on demand, not part of the offline shell) and
     // the social-share images (only ever fetched by crawlers, never the app),
     // the prerendered /warmups/* SEO pages (offline they fall back to the SPA
     // shell) and the 512px install icon (only the OS fetches it).
-    globPatterns: ['**/*.{js,css,html,ico,svg,png,woff,woff2,webmanifest}'],
+    globPatterns: ['**/*.{js,css,html,ico,svg,png,webp,woff,woff2,webmanifest}'],
     globIgnores: ['**/sounds/**', '**/og-image*', 'warmups/**', 'pwa-512x512.png', 'sw.js'],
 
     // Give every distinct build a new cache. During activation Workbox keeps

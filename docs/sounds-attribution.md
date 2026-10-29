@@ -8,7 +8,8 @@ recordists. Verified 2026-07-06 against each evidence page.
 All files were transcoded from the sources with ffmpeg: trimmed to at most
 6 minutes, loudness-normalized to -20 LUFS, given 1.5 s edge fades for loop
 comfort (the elevator track loops by design and got no fades), and encoded as
-44.1 kHz stereo MP3.
+44.1 kHz stereo MP3, then re-encoded to 64 kbps mono MP3 (2026-10-29) to cut
+download size.
 
 | File | Source recording | Author | License | Evidence |
 |---|---|---|---|---|

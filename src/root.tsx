@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import {
   Links,
   Meta,
@@ -25,8 +25,6 @@ import { BottomNav } from './components/layout/BottomNav';
 import { DesktopRail } from './components/layout/DesktopRail';
 import { HeaderControls } from './components/layout/HeaderControls';
 import { Snake } from './components/icons/Snake';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import { IS_NATIVE_BUILD } from './native/platform';
 import { useNativeStatusBar } from './native/useNativeStatusBar';
 import { TipSheet } from './components/support/TipSheet';
@@ -36,6 +34,32 @@ import { FAVORITE_TOOLS_INIT_SCRIPT } from './theme/favoriteTools';
 import { AppErrorPage } from './pages/ErrorPage';
 import { BUILD_LANG, CURRENT_SEO, canonicalUrl, hreflangLinksForPath } from './seo/config';
 import { DEFAULT_APP_LANG, resolveSupportedLang } from './languages';
+
+// Site analytics stay off the critical path: their chunks load after window `load`.
+const Analytics = lazy(() => import('@vercel/analytics/react').then((m) => ({ default: m.Analytics })));
+const SpeedInsights = lazy(() => import('@vercel/speed-insights/react').then((m) => ({ default: m.SpeedInsights })));
+
+function DeferredAnalytics() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const start = () => setReady(true);
+    if (document.readyState === 'complete') {
+      const id = setTimeout(start);
+      return () => clearTimeout(id);
+    }
+    window.addEventListener('load', start, { once: true });
+    return () => window.removeEventListener('load', start);
+  }, []);
+
+  if (!ready) return null;
+  return (
+    <Suspense fallback={null}>
+      <Analytics />
+      <SpeedInsights />
+    </Suspense>
+  );
+}
 
 const APP_ICON_VERSION = '2026-06-18';
 const VIEWPORT_CONTENT = IS_NATIVE_BUILD
@@ -185,12 +209,7 @@ function AppFrame({ children }: { children: React.ReactNode }) {
       </div>
       {/* Site only — the App uses privacy-first Aptabase (src/native/init.ts). */}
       {/* Analytics = visit/page-view counts; SpeedInsights = Core Web Vitals (page speed). */}
-      {!IS_NATIVE_BUILD && (
-        <>
-          <Analytics />
-          <SpeedInsights />
-        </>
-      )}
+      {!IS_NATIVE_BUILD && <DeferredAnalytics />}
       <WhatsNew />
       {/* App only — the global in-app tip jar host. */}
       {IS_NATIVE_BUILD && <TipSheet />}

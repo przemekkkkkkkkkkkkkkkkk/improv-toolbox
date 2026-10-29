@@ -1,17 +1,17 @@
 import { createElement, type CSSProperties, type HTMLAttributes } from 'react';
 
-import caregiverIcon from '../assets/archetype-icons/caregiver.png';
-import creatorIcon from '../assets/archetype-icons/creator.png';
-import explorerIcon from '../assets/archetype-icons/explorer.png';
-import foolIcon from '../assets/archetype-icons/fool.png';
-import heroIcon from '../assets/archetype-icons/hero.png';
-import loverIcon from '../assets/archetype-icons/lover.png';
-import mentorIcon from '../assets/archetype-icons/mentor.png';
-import rebelIcon from '../assets/archetype-icons/rebel.png';
-import sageIcon from '../assets/archetype-icons/sage.png';
-import shadowIcon from '../assets/archetype-icons/shadow.png';
-import tricksterIcon from '../assets/archetype-icons/trickster.png';
-import villainIcon from '../assets/archetype-icons/villain.png';
+import caregiverIcon from '../assets/archetype-icons/caregiver.webp';
+import creatorIcon from '../assets/archetype-icons/creator.webp';
+import explorerIcon from '../assets/archetype-icons/explorer.webp';
+import foolIcon from '../assets/archetype-icons/fool.webp';
+import heroIcon from '../assets/archetype-icons/hero.webp';
+import loverIcon from '../assets/archetype-icons/lover.webp';
+import mentorIcon from '../assets/archetype-icons/mentor.webp';
+import rebelIcon from '../assets/archetype-icons/rebel.webp';
+import sageIcon from '../assets/archetype-icons/sage.webp';
+import shadowIcon from '../assets/archetype-icons/shadow.webp';
+import tricksterIcon from '../assets/archetype-icons/trickster.webp';
+import villainIcon from '../assets/archetype-icons/villain.webp';
 
 const ARCHETYPE_ICON_SRC: Record<string, string> = {
   hero: heroIcon,

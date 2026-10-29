@@ -1,10 +1,10 @@
 import { createElement, type CSSProperties, type HTMLAttributes } from 'react';
-import callbackIcon from '../assets/deconstruction-icons/callback.png';
-import characterIcon from '../assets/deconstruction-icons/character.png';
-import gameMoveIcon from '../assets/deconstruction-icons/game-move.png';
-import miscIcon from '../assets/deconstruction-icons/misc.png';
-import sceneIcon from '../assets/deconstruction-icons/scene.png';
-import themeIcon from '../assets/deconstruction-icons/theme.png';
+import callbackIcon from '../assets/deconstruction-icons/callback.webp';
+import characterIcon from '../assets/deconstruction-icons/character.webp';
+import gameMoveIcon from '../assets/deconstruction-icons/game-move.webp';
+import miscIcon from '../assets/deconstruction-icons/misc.webp';
+import sceneIcon from '../assets/deconstruction-icons/scene.webp';
+import themeIcon from '../assets/deconstruction-icons/theme.webp';
 import type { NoteCategory } from '../types';
 
 const NOTE_CATEGORY_ICON_SRC: Record<NoteCategory, string> = {
