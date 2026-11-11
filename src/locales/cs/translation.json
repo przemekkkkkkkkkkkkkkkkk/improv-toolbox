@@ -3044,9 +3044,10 @@
       "sending": "Odesíláme…"
     },
     "notice": {
-      "sent": "Díky! „{{name}}“ jsme poslali ke kontrole.",
+      "sent": "Díky! „{{name}}“ jsme odeslali. Je ve vašem seznamu a čeká na schválení.",
       "failed": "Odeslání se nezdařilo. Zkontrolujte připojení a zkuste to znovu."
     },
+    "pending": "Čeká na schválení",
     "onMap": "Zobrazit na mapě",
     "onMapOf": "Zobrazit {{name}} na mapě"
   }

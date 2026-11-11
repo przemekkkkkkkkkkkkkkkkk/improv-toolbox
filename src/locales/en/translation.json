@@ -3044,9 +3044,10 @@
     },
     "addShort": "+ Add",
     "notice": {
-      "sent": "Thanks! “{{name}}” was sent for review.",
+      "sent": "Thanks! “{{name}}” was sent. It’s on your list, waiting for approval.",
       "failed": "Couldn’t send. Check your connection and try again."
     },
+    "pending": "Awaiting approval",
     "onMap": "Show on map",
     "onMapOf": "Show {{name}} on map"
   }

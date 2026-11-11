@@ -3044,9 +3044,10 @@
     },
     "addShort": "+ Dodaj",
     "notice": {
-      "sent": "Dzięki! Wysłaliśmy „{{name}}” do sprawdzenia.",
+      "sent": "Dzięki! Wysłaliśmy „{{name}}”. Widzisz to na liście — czeka na zatwierdzenie.",
       "failed": "Nie udało się wysłać. Sprawdź połączenie i spróbuj jeszcze raz."
     },
+    "pending": "Czeka na zatwierdzenie",
     "onMap": "Pokaż na mapie",
     "onMapOf": "Pokaż {{name}} na mapie"
   }

@@ -21,9 +21,31 @@ const HOME_COUNTRY: Record<string, string> = { pl: 'PL', en: 'US', cs: 'CZ' };
 const INPUT_CLASS =
   'w-full rounded-[var(--radius-md)] border-2 border-line bg-surface px-4 py-2.5 text-ink placeholder:text-ink-faint focus:border-ink focus:outline-none';
 
-type Listing = ImprovPlace & { countryName: string };
+type Listing = ImprovPlace & { countryName: string; pending?: boolean };
 /** A suggestion carries a free-text country name instead of an ISO code. */
 type Suggestion = Omit<ImprovPlace, 'country'> & { countryName: string };
+
+/** Places this device sent, shown as "awaiting approval" until they ship in IMPROV_PLACES. */
+const PENDING_KEY = 'community.pending';
+function loadPending(): Suggestion[] {
+  try {
+    const list = JSON.parse(localStorage.getItem(PENDING_KEY) ?? '[]');
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
+  }
+}
+function savePending(list: Suggestion[]) {
+  try {
+    localStorage.setItem(PENDING_KEY, JSON.stringify(list));
+  } catch {
+    // Storage blocked: the place was still sent, it just won't show here.
+  }
+}
+function urlKey(url: string) {
+  return url.toLowerCase().replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '');
+}
+const LISTED = new Set(IMPROV_PLACES.map((p) => urlKey(p.url)));
 
 /** Case- and diacritic-insensitive ("lodz" finds "Łódź"). */
 function fold(text: string) {
@@ -47,6 +69,7 @@ export function CommunityPage() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
+  const [pending, setPending] = useState(() => loadPending().filter((p) => !LISTED.has(urlKey(p.url))));
   const noticeRef = useRef<HTMLParagraphElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -56,14 +79,18 @@ export function CommunityPage() {
   const all: Listing[] = useMemo(() => {
     const home = HOME_COUNTRY[lang];
     const collator = new Intl.Collator(lang, { sensitivity: 'base' });
-    return IMPROV_PLACES.map((p) => ({ ...p, countryName: names.of(p.country) ?? p.country })).sort(
+    const listed: Listing[] = IMPROV_PLACES.map((p) => ({ ...p, countryName: names.of(p.country) ?? p.country }));
+    const sent: Listing[] = pending.map((p) => ({ ...p, country: '', pending: true }));
+    // Sent places go first, so their country group leads and they top it.
+    return [...sent, ...listed].sort(
       (a, b) =>
+        Number(!!b.pending) - Number(!!a.pending) ||
         Number(b.country === home) - Number(a.country === home) ||
         collator.compare(a.countryName, b.countryName) ||
         collator.compare(a.city, b.city) ||
         collator.compare(a.name, b.name),
     );
-  }, [names, lang]);
+  }, [names, lang, pending]);
 
   const ofKind = all.filter((p) => p.kinds.includes(kind));
   const q = fold(query.trim());
@@ -136,6 +163,9 @@ export function CommunityPage() {
       return;
     }
     setAdding(false);
+    const next = [...pending.filter((p) => urlKey(p.url) !== urlKey(place.url)), place];
+    setPending(next);
+    savePending(next);
     setNotice(t('community.notice.sent', { name: place.name }));
     requestAnimationFrame(() => noticeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
@@ -309,8 +339,13 @@ function PlaceCard({ place, kind }: { place: Listing; kind: PlaceKind }) {
         <div className="min-w-0 flex-1">
           <div className="font-label font-extrabold text-ink leading-tight break-words">{place.name}</div>
           <div className="text-sm text-ink-muted mt-0.5">{place.city}</div>
-          {also.length > 0 && (
+          {(place.pending || also.length > 0) && (
             <div className="flex flex-wrap gap-1.5 mt-1.5">
+              {place.pending && (
+                <Badge color="amber" className="text-[10px] uppercase tracking-wide px-1.5 py-0.5">
+                  {t('community.pending')}
+                </Badge>
+              )}
               {also.map((k) => (
                 <Badge key={k} color="feature" className="text-[10px] uppercase tracking-wide px-1.5 py-0.5">
                   {t('community.also', { kind: t(`community.kinds.${k}.one`) })}

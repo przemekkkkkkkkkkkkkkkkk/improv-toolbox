@@ -72,8 +72,14 @@ test.describe('Community — find your stage', () => {
       await expect(page.getByLabel('Name', { exact: true })).toHaveValue('Impro Praha Test');
       return;
     }
-    await expect(page.getByRole('status')).toHaveText(/sent for review/);
+    await expect(page.getByRole('status')).toHaveText(/waiting for approval/);
     await expect(page.locator('form')).toHaveCount(0);
+    // The sent place shows up in its section, marked as awaiting approval, and survives a reload.
+    await page.getByRole('tab', { name: /Groups/ }).click();
+    await expect(page.getByRole('link', { name: /^Impro Praha Test/ })).toContainText('Awaiting approval');
+    await page.reload();
+    await page.getByRole('tab', { name: /Groups/ }).click();
+    await expect(page.getByRole('link', { name: /^Impro Praha Test/ })).toContainText('Awaiting approval');
     expect(sent[0]).toContain('Impro Praha Test');
     expect(sent[0]).toContain('https://example.org');
     expect(sent[0]).toContain('group');
