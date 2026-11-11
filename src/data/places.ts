@@ -57,6 +57,7 @@ export const IMPROV_PLACES: ImprovPlace[] = [
   { name: 'Vancouver TheatreSports', city: 'Vancouver', country: 'CA', kinds: TS, url: 'https://vtsl.com' },
   { name: 'Montreal Improv', city: 'Montréal', country: 'CA', kinds: TS, url: 'https://www.montrealimprov.com' },
   { name: "Ligue nationale d'improvisation", city: 'Montréal', country: 'CA', kinds: ['group'], url: 'https://www.lni.ca' },
+  { name: 'Improv Kingston', city: 'Kingston', country: 'CA', kinds: ['school'], url: 'https://improvkingston.com' },
   // United Kingdom
   { name: 'The Free Association', city: 'London', country: 'GB', kinds: TS, url: 'https://www.thefreeassociation.co.uk' },
   { name: 'Hoopla Impro', city: 'London', country: 'GB', kinds: TS, url: 'https://www.hooplaimpro.com' },
