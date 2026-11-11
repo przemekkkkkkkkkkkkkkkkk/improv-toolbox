@@ -18,8 +18,14 @@ export interface Release {
 export const CHANGELOG: Release[] = [
   {
     version: '1.1.0',
-    date: '2026-10-27',
+    date: '2026-11-11',
     changes: [
+      {
+        type: 'new',
+        en: 'Community: find improv theaters, groups and schools near you, or suggest your own',
+        pl: 'Społeczność: znajdź teatry, grupy i szkoły impro w okolicy albo zgłoś własne',
+        cs: 'Komunita: najděte improvizační divadla, skupiny a školy ve svém okolí, nebo navrhněte vlastní',
+      },
       {
         type: 'new',
         en: 'A short welcome tour for first-time visitors',

@@ -105,6 +105,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: FAVORITE_TOOLS_INIT_SCRIPT }} />
 
         <meta name="author" content="Przemek K." />
+        {/* Safari "Open in App Store" banner, so iPhone visitors get the real app instead of a home-screen copy */}
+        {!IS_NATIVE_BUILD && <meta name="apple-itunes-app" content="app-id=6790120737" />}
         {CRITICAL_FONT_PRELOADS.map((href) => (
           <link key={href} rel="preload" href={href} as="font" type="font/woff2" crossOrigin="anonymous" />
         ))}
