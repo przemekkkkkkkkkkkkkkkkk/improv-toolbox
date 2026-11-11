@@ -73,11 +73,16 @@ export async function checkForUpdate(): Promise<UpdateCheck> {
     // Purging only when no new SW is coming matters: SW jobs run one at a time
     // per scope, so an unregister() issued mid-install waits out the whole
     // precache download, and then the reload throws that download away.
-    if (!(await newWorkerTakesOver())) {
-      const regs = (await navigator.serviceWorker?.getRegistrations()) ?? [];
-      await Promise.all(regs.map((r) => r.unregister()));
-      const keys = await caches.keys();
-      await Promise.all(keys.map((k) => caches.delete(k)));
+    // Once the overlay is up we MUST reload: any throw or stall below (iOS can
+    // park unregister() behind the SW job queue for good) would otherwise
+    // leave the user stuck on "Updating" forever. A slow install counts as on
+    // the way: it keeps going after the reload and controllerchange reloads
+    // again when done.
+    try {
+      const incoming = await Promise.race([newWorkerTakesOver(), wait(60_000).then(() => true)]);
+      if (!incoming) await Promise.race([purge(), wait(4_000)]);
+    } catch {
+      /* reload regardless */
     }
     window.location.reload();
     return 'updating';
@@ -89,8 +94,7 @@ export async function checkForUpdate(): Promise<UpdateCheck> {
 
 // Waits for a new SW (skipWaiting + clientsClaim) to finish precaching the
 // live build and take control. False when none is on the way: no SW, sw.js
-// unchanged, or the install failed. A slow install counts as on the way: it
-// keeps going after the reload and controllerchange reloads again when done.
+// unchanged, or the install failed. The caller caps how long it waits.
 async function newWorkerTakesOver(): Promise<boolean> {
   const sw = navigator.serviceWorker;
   const reg = sw?.controller ? await sw.getRegistration() : undefined;
@@ -106,9 +110,17 @@ async function newWorkerTakesOver(): Promise<boolean> {
       if (worker.state === 'redundant') resolve(false);
     });
   });
-  const slow = new Promise<boolean>((resolve) => setTimeout(() => resolve(true), 60_000));
-  return Promise.race([tookOver, failed, slow]);
+  return Promise.race([tookOver, failed]);
 }
+
+async function purge(): Promise<void> {
+  const regs = (await navigator.serviceWorker?.getRegistrations()) ?? [];
+  await Promise.all(regs.map((r) => r.unregister()));
+  const keys = await caches.keys();
+  await Promise.all(keys.map((k) => caches.delete(k)));
+}
+
+const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
 // Plain DOM, not React: it must cover the page during the reload regardless
 // of what the app tree is doing.
