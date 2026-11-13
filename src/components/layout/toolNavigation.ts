@@ -1,4 +1,5 @@
 import type { TabId } from '../../types';
+import { isMorePath } from './moreNav';
 import type { FeatureName } from '../../theme/features';
 
 export interface PrimaryNavItem {
@@ -19,6 +20,7 @@ export const PRIMARY_NAV_ITEMS: PrimaryNavItem[] = [
   { id: 'splash', path: '/', labelKey: 'nav.main' },
   { id: 'warmup', path: '/warmup', labelKey: 'nav.warmup' },
   { id: 'community', path: '/community', labelKey: 'nav.community' },
+  { id: 'more', path: '/more', labelKey: 'nav.more' },
 ];
 
 export const TOOL_NAV_ITEMS: ToolNavItem[] = [
@@ -44,6 +46,7 @@ export const TOOL_NAV_ITEMS: ToolNavItem[] = [
 
 export function isPrimaryNavItemActive(item: PrimaryNavItem, pathname: string) {
   if (item.path === '/') return pathname === '/';
+  if (item.path === '/more') return isMorePath(pathname);
   return pathname === item.path || pathname.startsWith(`${item.path}/`);
 }
 

@@ -27,6 +27,12 @@ export const CHANGELOG: Release[] = [
         cs: 'Komunita: najděte improvizační divadla, skupiny a školy ve svém okolí, nebo navrhněte vlastní',
       },
       {
+        type: 'better',
+        en: 'A More tab in the bottom bar takes you straight to every tool',
+        pl: 'Zakładka „Więcej” na dolnym pasku prowadzi prosto do wszystkich narzędzi',
+        cs: 'Záložka „Více“ na spodní liště vede rovnou ke všem nástrojům',
+      },
+      {
         type: 'new',
         en: 'A short welcome tour for first-time visitors',
         pl: 'Krótki samouczek na start dla nowych osób',
