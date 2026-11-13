@@ -83,7 +83,7 @@ export function HeaderControls({ tone = 'ink', contactShortcut = false }: Header
 
   return (
     <>
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex items-center gap-2 min-w-0">
         {contactShortcut && (
           <NavLink
             to="/contact"
@@ -129,13 +129,13 @@ export function HeaderControls({ tone = 'ink', contactShortcut = false }: Header
             <span>{LANG_META[nextLang].short}</span>
           </button>
         ) : (
-          <label className="relative block shrink-0">
+          <label className="relative block min-w-0">
             <span className="sr-only">{t('app.chooseLanguage')}</span>
             <select
               value={currentLang}
               onChange={(event) => setLang(event.target.value as Lang)}
               aria-label={t('app.chooseLanguage')}
-              className={`h-11 min-w-[88px] appearance-none rounded-[var(--radius-md)] border-2 py-0 pl-3 pr-8 text-sm font-bold cursor-pointer transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${selectCtrl} ${ring} ${ringOffset}`}
+              className={`h-11 w-full min-w-[88px] appearance-none rounded-[var(--radius-md)] border-2 py-0 pl-3 pr-8 text-sm font-bold cursor-pointer transition-[background-color,color,transform] duration-150 ease-[var(--ease-out)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${selectCtrl} ${ring} ${ringOffset}`}
             >
               {availableLangs.map((lng) => (
                 <option key={lng} value={lng}>

@@ -151,7 +151,7 @@ export function SplashPage() {
                         <span className="inline-flex w-[38px] h-[38px] items-center justify-center text-ink-muted transition-colors duration-200 ease-[var(--ease-out)] group-hover:text-brand-700 lg:h-11 lg:w-11">
                           <Icon size={30} strokeWidth={2.5} />
                         </span>
-                        <span data-testid="tool-title" className="block font-label font-bold text-[15px] leading-tight text-ink break-words [overflow-wrap:anywhere] lg:text-lg">
+                        <span data-testid="tool-title" className="block font-label font-bold text-[15px] leading-tight text-ink break-words hyphens-auto [overflow-wrap:anywhere] lg:text-lg">
                           {label(name)}
                         </span>
                       </button>
@@ -209,7 +209,7 @@ export function SplashPage() {
                         <span className="inline-flex w-[38px] h-[38px] items-center justify-center text-ink-muted transition-colors duration-200 ease-[var(--ease-out)] group-hover:text-brand-700 lg:h-11 lg:w-11">
                           <Icon size={30} strokeWidth={2.5} />
                         </span>
-                        <span data-testid="tool-title" className="block font-label font-bold text-[15px] leading-tight text-ink break-words [overflow-wrap:anywhere] lg:text-lg">
+                        <span data-testid="tool-title" className="block font-label font-bold text-[15px] leading-tight text-ink break-words hyphens-auto [overflow-wrap:anywhere] lg:text-lg">
                           {label(name)}
                         </span>
                       </button>

@@ -119,7 +119,7 @@ export function TimerPage() {
                 strokeLinecap="round"
                 strokeDasharray={circumference}
                 strokeDashoffset={dashOffset}
-                className={`transition-colors duration-1000 ${isDone ? 'text-red-500' : 'text-[var(--feature)]'}`}
+                className={`transition-[stroke-dashoffset,color] duration-1000 ease-linear ${isDone ? 'text-red-500' : 'text-[var(--feature)]'}`}
               />
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">

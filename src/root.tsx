@@ -164,11 +164,11 @@ function Header() {
 
   return (
     <header className="bg-surface-2 border-b-2 border-ink px-4 pb-2.5 pt-[calc(env(safe-area-inset-top)+0.625rem)] flex items-center justify-between gap-3 sticky top-0 z-40 lg:hidden">
-      <Link to="/" className="flex items-center gap-2.5 group min-w-0" aria-label={t('app.home')}>
+      <Link to="/" className="flex items-center gap-2.5 group shrink-0 sm:shrink sm:min-w-0" aria-label={t('app.home')}>
         <span className="grid place-items-center w-10 h-10 shrink-0 rounded-[var(--radius-md)] bg-brand-50 border-2 border-ink transition-transform duration-150 ease-[var(--ease-out-soft)] group-active:scale-90">
           <Snake size={22} color="var(--color-ink)" eye="var(--color-brand-500)" />
         </span>
-        <span className="flex flex-col leading-none min-w-0">
+        <span className="hidden sm:flex flex-col leading-none min-w-0">
           <span className="font-display font-bold text-ink text-base leading-tight truncate">
             {t('app.title')}
           </span>
