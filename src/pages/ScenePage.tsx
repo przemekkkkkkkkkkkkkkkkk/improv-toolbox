@@ -126,7 +126,7 @@ export function ScenePage() {
           </button>
 
           {showExtras && (
-            <div className="stagger space-y-3 animate-fade-slide-up">
+            <div className="stagger space-y-3" style={{ animation: 'none' }}>
               {extraCards.map((card) => (
                 <SceneCard
                   key={card.key}

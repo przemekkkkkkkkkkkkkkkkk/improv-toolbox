@@ -115,10 +115,12 @@
   --shadow-hard:  3px 3px 0 0 var(--color-ink);          /* poster press shadow */
   --shadow-hard-brand: 3px 3px 0 0 var(--color-brand-600);
 
-  /* Motion — exponential ease-out only (no bounce, no elastic) */
-  --ease-out:        cubic-bezier(0.22, 1, 0.36, 1);   /* ease-out-quint */
-  --ease-out-strong: cubic-bezier(0.16, 1, 0.3, 1);    /* ease-out-expo  */
-  --ease-out-soft:   cubic-bezier(0.22, 1, 0.36, 1);   /* alias, back-compat */
+  /* Motion — strong ease-out for UI, never ease-in, no bounce (emilkowalski/skills) */
+  --ease-out:        cubic-bezier(0.23, 1, 0.32, 1);    /* enter / exit / press */
+  --ease-out-strong: cubic-bezier(0.16, 1, 0.3, 1);     /* ease-out-expo — signature reveals */
+  --ease-out-soft:   var(--ease-out);                   /* alias, back-compat */
+  --ease-in-out:     cubic-bezier(0.77, 0, 0.175, 1);   /* on-screen movement */
+  --ease-drawer:     cubic-bezier(0.32, 0.72, 0, 1);    /* iOS-like sheet curve */
 
   /* Named animations */
   --animate-pop-in:        pop-in 0.4s var(--ease-out-strong) both;
@@ -132,7 +134,7 @@
     100% { transform: scale(1) translateY(0); opacity: 1; }
   }
   @keyframes fade-slide-up {
-    from { transform: translateY(12px); opacity: 0; }
+    from { transform: translateY(8px); opacity: 0; }
     to   { transform: translateY(0);    opacity: 1; }
   }
   @keyframes fade-in {
@@ -212,6 +214,13 @@
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  /* Native feel in the Capacitor WebView + mobile Safari: no grey tap flash
+     (every control has its own :active press), no double-tap-zoom delay. */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
@@ -830,27 +839,43 @@ h1, h2, h3 {
 @keyframes snake-sway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 .animate-snake-sway { transform-origin: bottom center; animation: snake-sway 4.8s ease-in-out infinite; }
 
-/* Staggered list/grid entrances: add .stagger to a parent */
-.stagger > * { animation: fade-slide-up 0.34s var(--ease-out-soft) both; }
-.stagger > *:nth-child(1) { animation-delay: 0.02s; }
-.stagger > *:nth-child(2) { animation-delay: 0.06s; }
-.stagger > *:nth-child(3) { animation-delay: 0.10s; }
-.stagger > *:nth-child(4) { animation-delay: 0.14s; }
-.stagger > *:nth-child(5) { animation-delay: 0.18s; }
-.stagger > *:nth-child(6) { animation-delay: 0.22s; }
-.stagger > *:nth-child(7) { animation-delay: 0.26s; }
-.stagger > *:nth-child(8) { animation-delay: 0.30s; }
-.stagger > *:nth-child(n+9) { animation-delay: 0.34s; }
+/* Staggered list/grid entrances: add .stagger to a parent.
+   Non-uniform, shrinking gaps (a wave, not a metronome); the whole group lands
+   in ~470ms and later items arrive together instead of queueing. */
+.stagger > * { animation: fade-slide-up 0.3s var(--ease-out) both; }
+.stagger > *:nth-child(2) { animation-delay: 40ms; }
+.stagger > *:nth-child(3) { animation-delay: 75ms; }
+.stagger > *:nth-child(4) { animation-delay: 105ms; }
+.stagger > *:nth-child(5) { animation-delay: 130ms; }
+.stagger > *:nth-child(6) { animation-delay: 150ms; }
+.stagger > *:nth-child(n+7) { animation-delay: 165ms; }
+
+/* Bottom sheets (What's new, Tip jar, Install help). Enter with a keyframe
+   (iOS 15 has no @starting-style); exit is a transition off [data-closing] so
+   it leaves through the same edge it came from. See useSheetClose. */
+.sheet-backdrop { animation: fade-in 300ms var(--ease-out) backwards; transition: opacity 220ms var(--ease-out); }
+.sheet-panel    { animation: sheet-in 420ms var(--ease-drawer) backwards; transition: transform 220ms var(--ease-out); }
+.sheet-backdrop[data-closing] { opacity: 0; }
+.sheet-backdrop[data-closing] .sheet-panel { transform: translateY(100%); }
+@keyframes sheet-in { from { transform: translateY(100%); } }
 
 .scrollbar-none { scrollbar-width: none; }
 .scrollbar-none::-webkit-scrollbar { display: none; }
 
-/* ── Accessibility: honor reduced-motion globally ── */
+/* ── Accessibility: reduced motion = gentler, not zero ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  /* Entrances keep a short opacity fade (aids comprehension); movement and
+     staggered delays are dropped so the group simply appears together. */
+  .animate-fade-slide-up, .animate-draw-in, .animate-pop-in, .animate-fade-in,
+  .stagger > *, .sheet-backdrop, .sheet-panel {
+    animation-name: fade-in !important;
+    animation-duration: 200ms !important;
+    animation-delay: 0s !important;
   }
 }

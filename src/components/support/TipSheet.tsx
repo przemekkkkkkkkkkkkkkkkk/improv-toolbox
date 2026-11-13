@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IconClose } from '../icons';
+import { useSheetClose } from '../ui/useSheetClose';
 import { onOpenTipSheet, getTipOptions, purchaseTip, type TipOption } from '../../native/tipJar';
 
 type Phase = 'loading' | 'choose' | 'buying' | 'thanks' | 'error' | 'unavailable';
@@ -29,7 +30,7 @@ export function TipSheet() {
     [],
   );
 
-  const close = useCallback(() => setOpen(false), []);
+  const { closing, close } = useSheetClose(useCallback(() => setOpen(false), []));
 
   const buy = useCallback(async (option: TipOption) => {
     setPhase('buying');
@@ -42,9 +43,9 @@ export function TipSheet() {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40" onClick={close}>
+    <div className="sheet-backdrop fixed inset-0 z-50 flex items-end justify-center bg-black/40" data-closing={closing || undefined} onClick={close}>
       <div
-        className="w-full max-w-md mx-auto bg-surface border-t-2 border-ink rounded-t-[26px] p-6 pb-[calc(env(safe-area-inset-bottom)+1.5rem)]"
+        className="sheet-panel w-full max-w-md mx-auto bg-surface border-t-2 border-ink rounded-t-[26px] p-6 pb-[calc(env(safe-area-inset-bottom)+1.5rem)]"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"

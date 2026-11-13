@@ -154,7 +154,7 @@ export function DeconstructionPage() {
     const sessionNotes = activeSession.notes;
 
     return (
-      <div className="fixed inset-0 z-50 flex flex-col bg-surface-2">
+      <div className="fixed inset-0 z-50 flex flex-col bg-surface-2 animate-fade-in">
         <div className="shrink-0 border-b border-line bg-surface">
           <div
             className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-5 pb-3"
@@ -266,7 +266,7 @@ export function DeconstructionPage() {
     const stepHint = currentPhase ? t(currentPhase.tipKey) : t('deconstruction.notes.generalHint');
 
     return (
-      <div className="fixed inset-0 z-50 flex flex-col bg-ink-fill text-on-ink">
+      <div className="fixed inset-0 z-50 flex flex-col bg-ink-fill text-on-ink animate-fade-in">
         <div className="shrink-0 border-b border-white/10 bg-ink-fill/95">
           <div
             className="mx-auto max-w-6xl px-4 pb-3 lg:px-8"
@@ -311,7 +311,7 @@ export function DeconstructionPage() {
                     className="group flex h-7 flex-1 items-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-ink-fill)]"
                   >
                     <span
-                      className={`h-2 w-full rounded-full transition-all duration-200 ease-[var(--ease-out)] ${
+                      className={`h-2 w-full rounded-full transition-colors duration-200 ease-[var(--ease-out)] ${
                         i === activeStep
                           ? 'bg-brand-400'
                           : isDoneStep
@@ -347,7 +347,7 @@ export function DeconstructionPage() {
                   <button
                     onClick={() => toggle(currentPhase.id)}
                     aria-pressed={phaseIsDone}
-                    className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[var(--radius-md)] border px-4 text-sm font-bold transition-all duration-150 ease-[var(--ease-out)] active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-ink-fill)] ${
+                    className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[var(--radius-md)] border px-4 text-sm font-bold transition-[background-color,border-color,color,transform] duration-150 ease-[var(--ease-out)] active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-ink-fill)] ${
                       phaseIsDone
                         ? 'border-brand-400 bg-brand-400 text-ink'
                         : 'border-white/15 bg-white/6 text-on-ink hover:border-brand-300 hover:bg-white/10'
@@ -482,7 +482,7 @@ export function DeconstructionPage() {
                   type="button"
                   aria-pressed={noteCategory === cat.id}
                   onClick={() => updateComposerDraft(noteText, cat.id)}
-                  className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-3.5 text-sm font-bold transition-all duration-150 ease-[var(--ease-out)] active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
+                  className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-3.5 text-sm font-bold transition-[background-color,border-color,color,transform] duration-150 ease-[var(--ease-out)] active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
                     noteCategory === cat.id
                       ? 'border-ink bg-ink-fill text-on-ink'
                       : 'border-line bg-surface-2 text-ink-muted hover:border-brand-300 hover:bg-brand-50 hover:text-ink'
@@ -513,7 +513,7 @@ export function DeconstructionPage() {
                 onClick={handleAddNote}
                 disabled={!noteText.trim()}
                 aria-label={t('deconstruction.notes.add')}
-                className="inline-flex min-h-16 shrink-0 items-center justify-center gap-2 rounded-[var(--radius-lg)] bg-brand-400 px-4 text-sm font-bold text-ink transition-all duration-150 ease-[var(--ease-out)] hover:bg-brand-500 active:scale-95 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-brand-400 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] sm:min-w-28"
+                className="inline-flex min-h-16 shrink-0 items-center justify-center gap-2 rounded-[var(--radius-lg)] bg-brand-400 px-4 text-sm font-bold text-ink transition-[background-color,border-color,color,transform] duration-150 ease-[var(--ease-out)] hover:bg-brand-500 active:scale-95 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-brand-400 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] sm:min-w-28"
               >
                 <IconPlus size={18} />
                 <span className="hidden sm:inline">{t('deconstruction.notes.add')}</span>
@@ -666,7 +666,7 @@ export function DeconstructionPage() {
                 {([0, 1] as const).map((i) => (
                   <div
                     key={i}
-                    className={`rounded-[var(--radius-lg)] border-2 p-4 transition-all ${
+                    className={`rounded-[var(--radius-lg)] border-2 p-4 transition-colors duration-200 ease-[var(--ease-out)] ${
                       formCharacters[i] ? 'border-brand-300 bg-brand-50' : 'border-line bg-surface'
                     }`}
                   >

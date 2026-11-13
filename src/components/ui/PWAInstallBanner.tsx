@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useSheetClose } from './useSheetClose';
 
 interface Props {
   onClose: () => void;
@@ -11,20 +12,22 @@ interface Props {
  */
 export function PWAInstallModal({ onClose }: Props) {
   const { t } = useTranslation();
+  const { closing, close } = useSheetClose(onClose);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40"
-      onClick={onClose}
+      className="sheet-backdrop fixed inset-0 z-50 flex items-end justify-center bg-black/40"
+      data-closing={closing || undefined}
+      onClick={close}
     >
       <div
-        className="bg-surface rounded-t-2xl w-full max-w-md mx-auto p-6 pb-8"
+        className="sheet-panel bg-surface rounded-t-2xl w-full max-w-md mx-auto p-6 pb-8"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-5">
           <h2 className="font-bold text-ink text-base">{t('install.modalTitle')}</h2>
           <button
-            onClick={onClose}
+            onClick={close}
             className="text-ink-faint hover:text-ink-muted transition-colors text-lg leading-none"
             aria-label={t('install.close')}
           >

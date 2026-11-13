@@ -132,7 +132,7 @@ export function WheelPage() {
                     key={n}
                     onClick={() => setSelectedPlayers(n)}
                     aria-pressed={selectedPlayers === n}
-                    className={`aspect-square rounded-[var(--radius-md)] border-2 font-bold text-xl transition-all duration-150 ease-[var(--ease-out)] active:scale-95 cursor-pointer lg:text-4xl xl:text-5xl ${FOCUS_RING} ${
+                    className={`aspect-square rounded-[var(--radius-md)] border-2 font-bold text-xl transition-[background-color,border-color,color,transform] duration-150 ease-[var(--ease-out)] active:scale-95 cursor-pointer lg:text-4xl xl:text-5xl ${FOCUS_RING} ${
                       selectedPlayers === n
                         ? 'bg-brand-400 border-brand-500 text-ink shadow-[var(--shadow-card)]'
                         : 'bg-brand-50 border-brand-100 text-brand-700 hover:bg-brand-100 hover:border-brand-300'

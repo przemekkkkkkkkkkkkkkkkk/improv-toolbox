@@ -93,7 +93,7 @@ export function AppIntro() {
     >
       <div
         aria-hidden
-        className="pointer-events-none fixed rounded-[16px] transition-all duration-300 ease-[var(--ease-out)]"
+        className="pointer-events-none fixed rounded-[16px] transition-[left,top,width,height] duration-300 ease-[var(--ease-in-out)]"
         style={
           rect
             ? {

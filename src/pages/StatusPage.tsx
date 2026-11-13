@@ -81,7 +81,7 @@ export function StatusPage() {
                 <button
                   key={i}
                   onClick={() => revealCard(i)}
-                  className={`rounded-[var(--radius-lg)] aspect-square flex flex-col items-center justify-center transition-all duration-200 ease-[var(--ease-out)] active:scale-95 border-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-400 ${
+                  className={`rounded-[var(--radius-lg)] aspect-square flex flex-col items-center justify-center transition-[background-color,border-color,color,transform] duration-200 ease-[var(--ease-out)] active:scale-95 border-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-400 ${
                     revealed[i]
                       ? `${numColor(n)} border-transparent text-white shadow-[var(--shadow-card)]`
                       : 'bg-surface border-line text-ink-muted hover:border-brand-200'

@@ -69,8 +69,8 @@ export function JamPage() {
 
     if (isDone) {
       return (
-        <div className="fixed inset-0 z-50 bg-ink-fill flex flex-col items-center justify-center px-8">
-          <div className="grid place-items-center w-20 h-20 rounded-[var(--radius-lg)] bg-brand-500 text-ink mb-6">
+        <div className="fixed inset-0 z-50 bg-ink-fill flex flex-col items-center justify-center px-8 animate-fade-in">
+          <div className="animate-pop-in grid place-items-center w-20 h-20 rounded-[var(--radius-lg)] bg-brand-500 text-ink mb-6">
             <IconJam size={42} strokeWidth={2.6} />
           </div>
           <p className="text-white text-3xl font-black mb-2 text-center">{t('jam.done')}</p>
@@ -93,7 +93,7 @@ export function JamPage() {
     const suggestKey = format ? SUGGEST_KEYS[format.suggestionType] : '';
 
     return (
-      <div className="fixed inset-0 z-50 bg-ink-fill flex flex-col">
+      <div className="fixed inset-0 z-50 bg-ink-fill flex flex-col animate-fade-in">
         {/* Top bar */}
         <div
           className="shrink-0 flex items-center justify-between px-5 pb-2"
@@ -112,7 +112,7 @@ export function JamPage() {
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto px-6 py-4">
+        <div key={currentIndex} className="flex-1 overflow-y-auto px-6 py-4 animate-draw-in">
           {/* Game name */}
           <p
             className="text-white font-black leading-tight mb-4"

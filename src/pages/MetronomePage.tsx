@@ -46,12 +46,12 @@ export function MetronomePage() {
           {beats.map((i) => (
             <div
               key={i}
-              className={`rounded-full transition-all duration-75 ${
+              className={`w-6 h-6 rounded-full transition-[transform,background-color] duration-75 ease-[var(--ease-out)] ${
                 isRunning && beat === i
                   ? i === 0
-                    ? 'w-6 h-6 bg-brand-500 shadow-[var(--shadow-pop)]'
-                    : 'w-5 h-5 bg-brand-300'
-                  : 'w-3 h-3 bg-brand-100'
+                    ? 'scale-100 bg-brand-500 shadow-[var(--shadow-pop)]'
+                    : 'scale-[0.83] bg-brand-300'
+                  : 'scale-50 bg-brand-100'
               }`}
             />
           ))}

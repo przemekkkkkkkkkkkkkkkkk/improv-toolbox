@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useSheetClose } from '../ui/useSheetClose';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { IconClose, IconSparkles } from '../icons';
@@ -41,6 +42,12 @@ export function WhatsNew() {
   const unseen = useUnseenUpdate();
   const [sheetOpen, setSheetOpen] = useState(false);
   const onChangelog = useLocation().pathname === '/changelog';
+  const { closing, close: closeSheet } = useSheetClose(
+    useCallback(() => {
+      setSheetOpen(false);
+      markSeen();
+    }, []),
+  );
   const latest = CHANGELOG[0];
   const short = latest.version.split('.').slice(0, 2).join('.');
 
@@ -78,17 +85,15 @@ export function WhatsNew() {
 
       {sheetOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-[rgba(16,34,26,0.45)]"
-          onClick={() => {
-            setSheetOpen(false);
-            markSeen();
-          }}
+          className="sheet-backdrop fixed inset-0 z-50 flex items-end justify-center bg-[rgba(16,34,26,0.45)]"
+          data-closing={closing || undefined}
+          onClick={closeSheet}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="whats-new-title"
-            className="mx-auto max-h-[86%] w-full max-w-md overflow-auto rounded-t-[24px] border-t-2 border-ink bg-surface px-5 pt-2.5 pb-[calc(env(safe-area-inset-bottom)+1.75rem)] animate-fade-slide-up"
+            className="mx-auto max-h-[86%] w-full max-w-md overflow-auto rounded-t-[24px] border-t-2 border-ink bg-surface px-5 pt-2.5 pb-[calc(env(safe-area-inset-bottom)+1.75rem)] sheet-panel"
             onClick={(e) => e.stopPropagation()}
           >
             <div aria-hidden className="mx-auto mb-4 h-[5px] w-10 rounded-full bg-line" />
@@ -100,10 +105,7 @@ export function WhatsNew() {
             <ChangeList release={latest} />
             <button
               type="button"
-              onClick={() => {
-                setSheetOpen(false);
-                markSeen();
-              }}
+              onClick={closeSheet}
               className="mt-6 w-full rounded-[14px] border-2 border-ink bg-brand-500 p-3.5 font-bold text-on-brand shadow-[var(--shadow-hard)] transition-[transform,box-shadow] duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
             >
               {t('whatsNew.gotIt')}

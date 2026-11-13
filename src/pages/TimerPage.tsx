@@ -36,7 +36,7 @@ export function TimerPage() {
   if (fullscreen) {
     return (
       <div
-        className={`fixed inset-0 z-50 flex flex-col items-center justify-center ${isDone ? 'bg-red-500' : 'bg-ink-fill'} transition-colors cursor-pointer`}
+        className={`animate-fade-in fixed inset-0 z-50 flex flex-col items-center justify-center ${isDone ? 'bg-red-500' : 'bg-ink-fill'} transition-colors cursor-pointer`}
         onClick={() => { if (isDone) { reset(); setFullscreen(false); } }}
       >
         <div className="text-white font-bold tabular-nums leading-none" style={{ fontSize: 'clamp(5rem, 20vw, 12rem)' }}>
@@ -119,7 +119,7 @@ export function TimerPage() {
                 strokeLinecap="round"
                 strokeDasharray={circumference}
                 strokeDashoffset={dashOffset}
-                className={`transition-all duration-1000 ${isDone ? 'text-red-500' : 'text-[var(--feature)]'}`}
+                className={`transition-colors duration-1000 ${isDone ? 'text-red-500' : 'text-[var(--feature)]'}`}
               />
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">

@@ -114,7 +114,7 @@ export function HaroldPage() {
           </div>
           <div className="w-full bg-brand-50 rounded-full h-2 overflow-hidden">
             <div
-              className="bg-brand-400 h-2 rounded-full transition-all duration-300 ease-[var(--ease-out)]"
+              className="bg-brand-400 h-2 rounded-full transition-[width] duration-300 ease-[var(--ease-out)]"
               style={{ width: `${(completedCount / totalBeats) * 100}%` }}
             />
           </div>
@@ -142,7 +142,7 @@ export function HaroldPage() {
                     <button
                       key={beat.id}
                       onClick={() => toggle(beat.id)}
-                      className={`w-full text-left px-4 py-3 rounded-[var(--radius-lg)] border-2 transition-all duration-150 ease-[var(--ease-out)] active:scale-[0.98] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-400 ${
+                      className={`w-full text-left px-4 py-3 rounded-[var(--radius-lg)] border-2 transition-[background-color,border-color,color,transform] duration-150 ease-[var(--ease-out)] active:scale-[0.98] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-400 ${
                         isDone
                           ? 'bg-brand-100 border-brand-400 text-brand-800'
                           : isAccent
